@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Mouse Location</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+        p{
+            line-height: 1.7;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+            background: rgba(125, 0, 255, 0.05);
+        }
+        .icon{
+            position: fixed;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: rgba(125, 0, 255, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mouse Location</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>내용</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>event.clientX</td>
+                <td>브라우저 좌측 상단 기준 X 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.clientY</td>
+                <td>브라우저 좌측 상단 기준 X=Y 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.offsetX</td>
+                <td>요소 좌측 상단 기준 X 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.offsetY</td>
+                <td>요소 좌측 상단 기준 Y 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.pageX</td>
+                <td>페이지 좌측 상단 기준 X 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.pageY</td>
+                <td>페이지 좌측 상단 기준 Y 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.screenX</td>
+                <td>디바이스 좌측 상단 기준 X 좌표</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <td>event.screenY</td>
+                <td>디바이스 좌측 상단 기준 Y 좌표</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>pageX, pageY는 페이지 스크롤 분량의 정보도 포함</p>
+    <p>screenX, screenY는 웹 페이지를 보고 있는 디바이스의 좌측 위를 기준으로 한다.</p>
+
+    <h2>Example</h2>
+
+    <!-- ex1 -->
+    <div class="box">
+        Target Box
+    </div>
+
+    <!-- ex2 -->
+    <div class="icon"></div>
+
+<script>
+
+
+    /** ex1 */
+    const targetBox = document.querySelector('.box')
+
+    // 마우스 이동 시 좌표 출력
+    targetBox.addEventListener('mousemove', (event) => {
+        console.log(event.clientX, event.clientY);
+    });
+
+
+
+
+    /** ex2 */
+    const iconEl = document.querySelector('.icon');
+
+    // 화먄에서 마우스 클릭 시 캐릭터 이동 시작
+    document.addEventListener('mousedown', () => {
+        // 마우스 움직임에 따라 캐릭터를 이동
+        document.addEventListener('mousemove', onMouseMove);
+
+        // 화면에서 마우스 클릭을 떼면 캐릭터 이동이 멈춤
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', onMouseMove);
+        });
+    });
+
+
+    /**
+     *  마우스 움직임에 따른 처리
+     */
+    function onMouseMove(event){
+        iconEl.style.left = `${event.clientX - 25}px`;
+        iconEl.style.top = `${event.clientY - 25}px`;
+    }
+
+</script>
+
+<p>출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
