@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Mouse Event Over</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+
+        .box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:  100px;
+            margin-bottom: 1rem;
+            padding:  2rem;
+            border:  1px solid #ddd;
+            color: rgba(125, 0, 125, 1);
+        }
+
+        .inner{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:  100px;
+            flex: 1;
+            height: 100%;
+            background: rgba(125, 0, 125, 0.05);;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Mouse Event Over</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>발생 타이밍</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>mouseenter</th>
+                <td>포인팅 디바이스가 요소의 위치에 있을 때</td> 
+            </tr>
+            <tr>
+                <th>mouseleave</th>
+                <td>포인팅 디바이스가 요소를 벗어날 때</td> 
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Example</h2>
+
+    <!-- ex1 -->
+    <h3>box mouseenter, mouseleave</h3>
+    <div class="box" id="box1">
+        <div class="log"></div>
+    </div>
+
+    <!-- ex2 -->
+    <h3>box, inner : mouseenter</h3>
+    <div class="box" id="box2">
+        <div class="inner">inner</div>
+    </div>
+
+<script>
+
+    /** ex1 */
+    const box1El = document.querySelector('#box1');
+    const log1El = box1El.querySelector('.log');
+
+    box1El.addEventListener('mouseenter', () => {
+        log1El.textContent = '포인팅 디바이스가 .box 요소 위에 있음';
+    });
+    box1El.addEventListener('mouseleave', () => {
+        log1El.textContent = '포인팅 디바이스가 .box 요소를 벗어남';
+    });
+
+    /** ex2 */
+    const box2El = document.querySelector('#box2');
+    const innerEl = box2El.querySelector('.inner');
+
+    box2El.addEventListener('mouseenter', () => {
+        console.log('.box 요소 위치에 마우스가 있음')
+
+    });
+    innerEl.addEventListener('mouseenter', () => {
+        console.log('.inner 요소 위에 마우스가 있음')
+    });
+
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

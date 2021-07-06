@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Mouse Event Over</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+
+        .box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:  100px;
+            margin-bottom: 1rem;
+            padding:  2rem;
+            border:  1px solid #ddd;
+            color: rgba(125, 0, 125, 1);
+        }
+
+        .inner{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:  100px;
+            flex: 1;
+            height: 100%;
+            background: rgba(125, 0, 125, 0.05);;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Mouse Event Over</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>발생 타이밍</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>mouseover</th>
+                <td>포인팅 디바이스가 요소의 위치에 있을 때(이벤트 버블링)</td> 
+            </tr>
+            <tr>
+                <th>mouseout</th>
+                <td>포인팅 디바이스가 요소를 벗어날 때(이벤트 버블링)</td> 
+            </tr>
+        </tbody>
+    </table>
+    <p>mouseover와 mouseout 이벤트는 디바이스가 요소 위에 있거나 요소를 벗어날 때 발생하는 이벤트로 
+        mouseenter, mouseleave와 다르게 이벤트 버블링이 일어난다. <br>
+        버블링이란, 자식 요소에서 발생한 이벤트가 부모 요소까지 전달되는 것이다. <br>
+        예를 들어 버블링이 일어나는 mouseover의 이벤트 리스터를 부모와 자식 요소 모두 설정하면, 
+        자식 요소에서 발생한 이벤트가 부모 요소에서도 발생하여 부모 요소의 이벤트 리스너도 함께 실행된다.
+    </p>
+
+
+    <h2>Example</h2>
+
+    <div class="box" id="box1">
+        <div class="inner"></div>
+    </div>
+
+    <p>.inner 요소 위치에 마우스가 있을 때, inner 요소와 함께 .box 요소의 이벤트도 함께 발생한다.</p>
+
+<script>
+
+    /** ex1 */
+    const box1El = document.querySelector('#box1');
+    const inner1El = box1El.querySelector('.inner');
+
+    box1El.addEventListener('mouseover', () => {
+        console.log('포인팅 디바이스가 .box 요소 위에 있음')
+    });
+    // box1El.addEventListener('mouseout', () => {
+    //     console.log('포인팅 디바이스가 .box 요소를 벗어남')
+    // });
+    inner1El.addEventListener('mouseover', (e) => {
+        // e.stopPropagation()
+        console.log('포인팅 디바이스가 .inner 요소위에 있음')
+    });
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
