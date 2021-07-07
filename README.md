@@ -1,6 +1,7 @@
 # javascript-recipe
 
 ## 이벤트 처리
+* [페이지 로드 시 이벤트 사용](https://thegicode.github.io/javascript-recipe//load-event.html)
 * [드래그 앤 드롭 기능 사용](https://thegicode.github.io/javascript-recipe//drag-drop.html)
 * [마우스 조작 이벤트 사용](https://thegicode.github.io/javascript-recipe//mouse-event.html)
 * [마우스 오버 이벤트 사용](https://thegicode.github.io/javascript-recipe//mouse-event-over.html)
