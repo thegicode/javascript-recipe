@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Load Event</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        table{
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+        .rel{
+            margin-top:  100px;
+        }
+        .main {
+            display: flex;
+        }
+        .box{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+            background: rgba(125, 0, 255, 0.05);
+        }
+    </style>
+    <script src="js/load-event.js"></script>
+    <script src="js/load-event-defer.js" defer></script>
+</head>
+<body>
+
+    <h1>Load Event</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>발생 타이밍</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>DOMContentLoaded</th>
+                <td>HTML 문서 로딩 완료 시점</td> 
+            </tr>
+            <tr>
+                <th>load</th>
+                <td>모든 리소스 로딩 완료 시점</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Example</h2>
+    <main class="main">
+        <div class="box">박스</div>
+        <div class="box">박스</div>
+        <div class="box">박스</div>
+    </main>
+
+    <p>DOMContentLoaded를 사용하지 않는 경우 <br>
+        HTML의 head 태그 안에 script 태그가 존재하는 경우 .box 요소의 로딩보다 자바스크립트가 먼저 실행되어 비리므로
+        .box의 요소를 가져올 수 없다.
+    </p>
+
+    <p>load 이벤트는 페이지 내 모든 리소스(사진, 사운도, 동영상 등)의 로딩이 완료된 후 발생한다.  <br>
+        그러므로 DOMContentLoaded보다 시점이 느리다. <br>
+        페이지가 표시되는 시점에 요소를 조작하고 싶다면 DOMContentLoaded를 사용한다.
+    </p>
+
+    <p>
+        defer 속성을 사용하면 HTML 로딩 후 스크립트가 실행된다. DOMContentLoaded보다는 발생 시점이 앞선다. <br>
+        따라서 defer 속성을 사용하면 DOMContentLoaded 이벤트 설정은 필요가 없다.
+    </p>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+
+</body>
+</html>
