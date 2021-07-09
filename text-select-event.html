@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Text Select Event</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+        .paragraph{
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .balloon{
+            opacity: 0;
+            position: absolute; top: 50%; left: 50%;
+            min-width: 60px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #f2e8ff;
+            text-align: center;
+            font-size: 14px;
+            color: purple;
+        }
+        .balloon:before{
+            content:  '';
+            position: absolute;
+            top: 100%; left: 50%;
+            margin-left: -10px;
+            border: 10px solid transparent;
+            border-top:  10px solid #f2e8ff;
+        }
+        .balloon[data-hidden=false]{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Select Event</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>발생 타이밍</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>selectstart</th>
+                <td>텍스트 선택 시점</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Example</h2>
+    <p class="paragraph">
+        Hello. this is a javascript Programming book. <br>
+        <!-- 우리 모두가 자주 행복을 느끼길 바랍니다. -->
+    </p>
+    <div class="balloon" id="balloon" data-hidden="true"></div>
+
+<script>
+
+    /** ex1 */
+    const prragraph = document.querySelector('.paragraph');
+    // prragraph.addEventListener('selectstart', () => {
+    //     console.log('텍스트가 선택되었습니다.')
+    // });
+
+    /** ex2 */
+    const balloon = document.querySelector('#balloon');
+
+    // 선택 작업 시 처리
+    prragraph.addEventListener('selectstart', () => {
+        // 클릭 해제 시 처리
+        prragraph.addEventListener('mouseup', (event) => {
+            // 선택한 문자열 가져오기
+            // window.getSelection은 선택 범위를 반환한다.
+            const selectionCharacters = window.getSelection().toString().trim();
+            if (selectionCharacters.length > 0) {
+                // 한 글자 이상인 경우 문자를 표시
+                balloon.textContent = selectionCharacters;
+                balloon.dataset.hidden = false;
+                balloon.style.left = 
+                    `${event.clientX - balloon.clientWidth / 2}px`;
+                balloon.style.top = 
+                    `${event.clientY - balloon.clientHeight * 2}px`;
+            } else {
+                // 선택된 문자열이 없으면 말풍선 닫기
+                removePopup();
+            }
+        },
+        {
+            once: true
+        });
+    });
+
+    // 말풍선 클릭 시 닫기
+    balloon.addEventListener('click', removePopup);
+
+    // 말풍선 닫기 처리
+    function removePopup() {
+        balloon.dataset.hidden = true;
+    }
+
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
