@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>이벤트 리스너 1회 실행하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>이벤트 리스너 1회 실행하기</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>옵션</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>capture</th>
+                <td>이벤트 캡쳐 여부</td> 
+                <td>진릿값</td>
+            </tr>
+            <tr>
+                <th>once</th>
+                <td>리스너 1회 실행 여부</td> 
+                <td>진릿값</td>
+            </tr>
+            <tr>
+                <th>passive</th>
+                <td>패시브 이벤트 여부</td> 
+                <td>진릿값</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>addEventListener()의 세 번째 인수의 옵션</p>
+
+    <h2>Example</h2>
+    <button type="button">Click Me</button>
+
+<script>
+
+    /** ex1 */
+    
+    // 옵션 지정
+    const option = {
+        once: true
+    }
+
+    document
+        .querySelector('button')
+        .addEventListener('click', onClickButton, option);
+
+    function onClickButton(){
+        alert('버튼 클릭 이벤트가 발생하였습니다.');
+    }
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

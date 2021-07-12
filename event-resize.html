@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>화면 사이즈 이벤트 처리하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>화면 사이즈 이벤트 처리하기</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>발생 타이밍</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>resize</th>
+                <td>브라우저 윈도우 창의 사이즈 변환 시점</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Example</h2>
+
+    <h3>ex2</h3>
+    <p>윈도우 가로 길이: <span id="widthLog"></span></p>
+    <p>윈도우 세로 길이: <span id="heightLog"></span></p>
+
+    <h3>ex3</h3>
+    <h4>resize 이벤트의 부하 문제 처리하기</h4>
+    <p>resize 이벤트는 창의 사이즈가 1px만 변해도 발생하며, 무거운 작업을 지속적으로 수행할 경우 부하가 생겨 시스템에 영향을 준다. <br>
+        문제 해결의 한 방법으로 resize 완료 확인 후, 처리 작업을 실행할 수 있다. <br>
+        타이머를 사용해 완료 후 1초 이상 사이즈 변화가 없을 때 작업을 실행하도록 설정한다.</p> 
+
+
+
+<script>
+
+    /** ex1 */
+    window.addEventListener('resize', () => {
+        console.log('[ex1] 윈도우 창이 리사이징되었습니다.');
+    })
+
+
+    /** ex2 */
+    const widthLog = document.querySelector('#widthLog');
+    const heightLog = document.querySelector('#heightLog');
+
+    window.addEventListener('resize', () => {
+        widthLog.textContent = `${window.innerWidth}px`;
+        heightLog.textContent = `${window.innerHeight}px`;
+    });
+
+
+    /** ex3 */
+    // 1초 실행 타이머
+    let resizeTimer;
+
+    window.addEventListener('resize', () => {
+        // resizeTimer 실행 중인 경우 타이머 해제 
+        if (resizeTimer != null) {
+            clearTimeout(resizeTimer);
+            console.log('[ex3] clearTimeout', resizeTimer);
+        }
+
+        // 1000밀리초 후 onResize() 실행
+        resizeTimer = setTimeout( () => {
+            onResize();
+            console.log('[ex3] resizeTimer', resizeTimer)
+        }, 1000);
+
+
+    });
+
+    // 처리 작업
+    function onResize(){
+        console.log('[ex3] onResize');
+    }
+
+
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
