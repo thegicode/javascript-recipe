@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>사이즈 벗어난 화면 처리하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+        .rectangle{
+            height:  50px;
+            background-image: linear-gradient(-135deg, #00aaff, #5500ff);
+        }
+        .rectangle.big-size{
+            background-image: linear-gradient(-135deg, red, #ff00a2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>사이즈 벗어난 화면 처리하기</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>변환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>matchMedia(미디어쿼리)</th>
+                <td>미디어 쿼리 정보</td> 
+                <td>객체(MedaiQueryList)</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>내용</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>matchMedia(미디어쿼리).matches</th>
+                <td>미디어 쿼리 일치 여부</td> 
+                <td>진릿값</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Example</h2>
+
+    <h3>ex3</h3>
+    <div class="rectangle"></div>
+   
+
+
+
+<script>
+
+    /** ex1 */
+    // 윈도우 창의 크기가 500px 이상일 때
+    console.log(matchMedia('(min-width: 500px)'))
+
+    // 윈도우 창의 크기가 500px 이하이면 true
+    console.log(matchMedia('(max-width: 500px)').matches);
+
+    // 윈도우 창의 크기가 100px 이상 700px 이하라면 true
+    console.log(matchMedia('(min-width: 100px) and (max-width: 700px)').matches);
+
+
+    /** ex2 */
+    // (oritentation:portrait) 가로 전환 대기
+    const mediaQueryList2 = matchMedia('(orientation: portrait)');
+    mediaQueryList2.addListener( () => {
+        console.log('디바이스 화면의 방향이 전환되었습니다.')
+    });
+
+
+    /** ex3 */
+    const rectangle = document.querySelector('.rectangle');
+    const mediaQueryList3 = matchMedia('(min-width: 600px)');
+    mediaQueryList3.addListener(onMediaQueryChange);
+
+    /** 
+     * 미디어 쿼리 변화 시점에 따라 실행되는 함수
+     */
+    function onMediaQueryChange(mediaQueryList){
+        if (mediaQueryList.matches === true) {
+            rectangle.classList.add('big-size');
+            console.log('윈도우 창의 크기가 600px 이상입니다');
+        } else {
+            rectangle.classList.remove('big-size');
+            console.log('윈도위 창의 크기가 600px 미만입니다.');
+        }
+    }
+
+    // 화면 표시 시점에 onMediaQueryChange() 1회 실행
+    onMediaQueryChange(mediaQueryList3);
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
