@@ -89,10 +89,9 @@
 
     <h3>ex3</h3>
     <div class="rectangle"></div>
+    <p>윈도우 창의 크기가 600px를 넘어섰을 때 1회에 한해 처리 작업이 실행. <br>
+        resize 이벤트와 달리 matchMedia()는 작업이 1회만 실행되므로, 시스템의 부담을 줄일 수 있다.</p>
    
-
-
-
 <script>
 
     /** ex1 */
@@ -123,6 +122,7 @@
      * 미디어 쿼리 변화 시점에 따라 실행되는 함수
      */
     function onMediaQueryChange(mediaQueryList){
+        console.log('onMediaQueryChange')
         if (mediaQueryList.matches === true) {
             rectangle.classList.add('big-size');
             console.log('윈도우 창의 크기가 600px 이상입니다');
@@ -134,6 +134,7 @@
 
     // 화면 표시 시점에 onMediaQueryChange() 1회 실행
     onMediaQueryChange(mediaQueryList3);
+
 
 </script>
 
