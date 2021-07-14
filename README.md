@@ -18,5 +18,6 @@
 * [화면 사이즈 이벤트 처리](https://thegicode.github.io/javascript-recipe/event-resize.html)
 * [사이즈 벗어난 화면 처리하기](https://thegicode.github.io/javascript-recipe/media-matches.html)
 * [이벤트 작동 설정하기](https://thegicode.github.io/javascript-recipe/dispatch-event.html)
+* [기본 이벤트 작동 해지 설정하기<](https://thegicode.github.io/javascript-recipe/event-prevent.html)
 * [드래그 앤 드롭 기능 사용](https://thegicode.github.io/javascript-recipe/drag-drop.html)
 
