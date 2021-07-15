@@ -1,0 +1,5 @@
+ReadAsText 샘플 파일
+FileReader 객체를 사용해 input 요소로 선택한 파일 데이터에 접근할 수 있다.
+FileReader 객체의 readAsText()를 사용해 파일을 텍스트 형식으로 읽을 수 있다.
+비동기 형식으로 addEventListener()를 사용해 읽기 작업 완료 이벤트인 load를 감시한다.
+load 이벤트 완료 후 데이터에 RileReader 객체의 result 속성으로 접근할 수 있다.
