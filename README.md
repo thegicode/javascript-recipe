@@ -25,3 +25,5 @@
 
 ## 폼
 * [텍스트 박스 / 텍스트 영역 값 변경 확인](https://thegicode.github.io/javascript-recipe/form-event-input.html)
+* [체크박스 상태 변경 확인](https://thegicode.github.io/javascript-recipe/form-checkbox.html)
+* [파일 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/form-file.html)

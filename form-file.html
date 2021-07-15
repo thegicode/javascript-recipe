@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>파일 정보 읽어 오기</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>파일 정보 읽어 오기</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>input요소.files</th>
+                <td>선택된 파일 배열</td> 
+                <td>배열</td> 
+            </tr>
+        </tbody>
+    </table>
+    <p>자바스크립트는 change 이벤트가 발생하면 event.target.fiels 속성을 참조하여 input 요소에 저장된 파일 리스트를 가져올 수 있다. <br>
+        multiple 속성을 지정하면 하나가 아닌 여러 파일의 작업도 가능하며, files 속성의 배열도 여러 갱의 요소를 가진다.
+    </p>
+
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+        <style>
+            .log{
+                height: 40px;
+                box-sizing: border-box;
+                padding: 10px;
+                background: rgba(0, 0, 255, 0.05) ;
+            }
+        </style>
+
+        <input type="file" id="myFile" accept=".pdf">
+
+        <script>
+            const element = document.querySelector('#myFile')
+            element.addEventListener('change', (event) => {
+                const target = event.target;
+                // 선택된 파일 참조
+                const files = target.files;
+                // 배열 타입이므로 0번째 파일 참조 
+                const file = files[0]
+
+                // 유저가 선택한 파일명 표시 
+                alert(`${file.name} 파일이 선택되었습니다.`);
+            });
+        </script>
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
