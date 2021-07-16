@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>슬라이더 값 변경 확인하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>슬라이더 값 변경 확인하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>input</th>
+                <td>input 요소 변경 시 이벤트</td> 
+            </tr>
+            <tr>
+                <th>change</th>
+                <td>input 요소 변경 시 이벤트</td> 
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        input 이벤트는 슬라이더가 움직일 때마다 발생하지만, change 이벤트는 조작이 끝난 상태에서만 발생
+    </p>
+
+
+    <h2>Examples</h2>
+
+    <section>
+        <style>
+            .log, .log2{
+                min-height: 40px;
+                box-sizing: border-box;
+                padding: 10px;
+                background: rgba(0, 0, 255, 0.05) ;
+            }
+        </style>
+
+        <input type="range" id="myRange" min="0" max="100" value="50">
+
+        <h4>input event</h4>
+        <p class="log"></p>
+
+        <!-- Add For me -->
+        <h4>change event</h4>
+        <p class="log2"></p>
+
+
+        <script>
+
+            const element = document.querySelector('#myRange');
+
+            element.addEventListener('input', handleInput);
+
+            function handleInput(event) {
+                const value = event.target.value;
+                document.querySelector('.log').textContent = value;
+            }
+
+            // Add for me
+            element.addEventListener('change', handleChange);
+            function handleChange(event) {
+                const value = event.target.value;
+                document.querySelector('.log2').textContent = value;
+            }
+
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
