@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>라디오 버튼 상태 확인/변경</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>라디오 버튼 상태 확인/변경</h1>
+
+    <h2>Syntax</h2>
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>폼요소[키]</th>
+                <td>라디오 버튼 값</td> 
+                <td>문자열</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>change</th>
+                <td>form 요소 변경 시 이벤트</td> 
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+        <style>
+        </style>
+
+        <form id="readGroup">
+            <h6>Fruit</h6>
+            <label>
+                <input type="radio" name="fruit" value="apple" checked>Apple
+            </label>
+            <label>
+                <input type="radio" name="fruit" value="orange">Orange
+            </label>
+            <label>
+                <input type="radio" name="fruit" value="Grape">Grape
+            </label>
+
+            <hr>
+            <h6>Drink</h6>
+            <label>
+                <input type="radio" name="drink" value="coke" checked>Coke
+            </label>
+            <label>
+                <input type="radio" name="drink" value="wine">Wine
+            </label>
+            <label>
+                <input type="radio" name="drink" value="tea">Tea
+            </label>
+            <hr>
+        </form>
+
+        <script>
+
+            /** ex1 : 상태 확인 */
+            console.log('[ex1]')
+            const element = document.querySelector('form#readGroup');
+
+            const fruitValue = element.fruit.value;
+            const drinkValue = element.drink.value;
+
+            console.log('fruitValue: ', fruitValue);
+            console.log('drinkValue: ', drinkValue);
+
+            // For me
+            console.log('fruit', element.fruit); // RadioNodeList(3)
+            for (const node of element.fruit){
+                console.log('node', node);
+            }
+
+            /** ex2 : 상태 변경 */
+            console.log('[ex2]')
+            element.addEventListener('change', handleChange);
+
+            function handleChange(event) {
+                const fruitValue = element.fruit.value;
+                const drinkValue = element.drink.value;
+
+                console.log('fruitValue: ', fruitValue);
+                console.log('drinkValue: ', drinkValue);
+            }
+
+        </script>
+        
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
