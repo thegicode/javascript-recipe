@@ -1,6 +1,9 @@
 # javascript-recipe
 
 
+## 기초
+* [const](https://thegicode.github.io/javascript-recipe/variable-const.html)
+
 ## 이벤트 처리
 * [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
 * [이벤트 리스너 삭제하기](https://thegicode.github.io/javascript-recipe/event-listener-remove.html)
