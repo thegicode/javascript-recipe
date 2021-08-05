@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Math Random</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Math Random</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Math.random()</th>
+                <td>부돔 소수점의 유사 난수를 반환(0 이상 1 미만)</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+        <script>
+            console.log( Math.random() ); // 0 이상 1 미만 임의의 소수
+            console.log( Math.floor(Math.random() * 100) ); // 0 이상 100 미만 임의의 정수
+            console.log( 10 + Math.floor(Math.random() * 10) ); // 10 이상 20 미만 임의의 정수
+        </script>
+
+    </section>
+
+    <section class="ex2">
+        <style>
+            .ex2{
+                height: 100px;
+            }
+            .rectangle {
+                width: 100%;
+                height: calc(100% - 50px);
+                --start: hsl(0, 100%, 50%);
+                ---end: hsl(322, 100%, 50%);
+                background-image: linear-gradient(-135deg, var(--start), var(---end));
+                margin-top: 1rem;
+            }
+        </style>
+
+        <h3>ex2</h3>
+        <button class="button">색상 변경</button>
+        <div class="rectangle"></div>
+        
+        <script>
+            const rectangle = document.querySelector('.rectangle');
+
+            document.querySelector('button')
+                .addEventListener('click', onClickButton);
+
+            function onClickButton() {
+                // 0 ~ 359 사이 임의의 수를 가져오기
+                const randomHue = Math.trunc(Math.random() * 360);
+                // 그라데이션 시작과 끝 색상을 결정
+                const randomColorStart = `hsl(${randomHue}, 100%, 50%)`;
+                const randomColorEnd = `hsl(${randomHue * 40}, 100%, 50%)`;
+
+                // 직사각형의 그라데이션 처리 변수
+                rectangle.style.setProperty('--start', randomColorStart);
+                rectangle.style.setProperty('--end', randomColorEnd);
+            }
+        </script>
+    </section>
+
+
+    <h2>안전한 난수 사용은 crypto.getRandomValues()</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>crypto.getRandomValues(타입지정배열)</th>
+                <td>난수의 배열을 반환</td> 
+                <td>배열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>비밀번호 등 정보 보호가 중요한 문자열을 생성할 때는 Math.random()보다 crypto.getRandomValues()를 사용한다. 
+    인수에 타입 지정 배열과 값을 전달하면 값의 난수 배열을 생성한다.</p>
+
+    <script>
+        // 임의의 정수 (부호없는 16비트) 10개가 들어 있는 배열을 생성
+        // 예: [8918, 14634, 53220, 62158, 64876, ...]
+        const randomArray1 = crypto.getRandomValues(new Uint16Array(10));
+        console.log(randomArray1)
+        // 배열의 요소를 연결하여 난수를 생성
+        console.log( randomArray1.join('') );
+
+        // 부호 없는 32 비트의 배열 난수를 생성
+        console.log( crypto.getRandomValues(new Uint32Array(10)).join('') );
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
