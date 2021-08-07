@@ -10,7 +10,8 @@
 * [Number](https://thegicode.github.io/javascript-recipe/number.html)
 * [Math 반올림, 올림, 버림](https://thegicode.github.io/javascript-recipe/math-rounding.html)
 * [Math Random](https://thegicode.github.io/javascript-recipe/math-random.html)
-* [Math Maths](https://thegicode.github.io/javascript-recipe/math-maths.html)
+* [Math 수학 함수](https://thegicode.github.io/javascript-recipe/math-maths.html)
+* [Math 삼각 함수](https://thegicode.github.io/javascript-recipe/math-trigonometric.html)
 
 ## 이벤트 처리
 * [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
