@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>지정 문자열 변환하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>지정 문자열 변환하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>대상문자열.replace(문자열1, 문자열2)</th>
+                <td>문자열1을 문자열2로 바꾸기</td> 
+                <td>문자열</td> 
+            </tr>
+            <tr>
+                <th>대상문자열.replace(정규표현, 문자열)</th>
+                <td>정규표현으로 문자열 바꾸기</td> 
+                <td>문자열</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+    <p>텍스트 영역에 입력한 전화번호의 하이픈(-)을 제거하는 샘플</p>
+
+    <section>
+        <style>
+            section{
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid #ddd;
+            }
+            .hide{
+                display: none
+            }
+
+            header{
+                margin-bottom: 1rem;
+            }
+
+            label{
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+
+        <input type="tel" placeholder="전화번호" id="phoneNumberTExt">
+        <button type="button">click</button>
+
+        <script>
+            document.querySelector('button').addEventListener('click', () => {
+                const phoneNumber = document.querySelector('#phoneNumberTExt').value 
+                const trimmedPhoneNumber = phoneNumber.replace(/-/g, '')
+                alert(`전화번호는 ${trimmedPhoneNumber}입니다.`)
+            })
+
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

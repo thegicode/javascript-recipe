@@ -12,7 +12,8 @@
 * [Math Random](https://thegicode.github.io/javascript-recipe/math-random.html)
 * [Math 수학 함수](https://thegicode.github.io/javascript-recipe/math-maths.html)
 * [Math 삼각 함수](https://thegicode.github.io/javascript-recipe/math-trigonometric.html)
-* [String CharAt문자열에서 문자 추출)](https://thegicode.github.io/javascript-recipe/string-charat.html)
+* [String CharAt(문자열에서 문자 추출)](https://thegicode.github.io/javascript-recipe/string-charat.html)
+* [지정 문자열 변환](https://thegicode.github.io/javascript-recipe/string-replace.html)
 
 ## 이벤트 처리
 * [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
