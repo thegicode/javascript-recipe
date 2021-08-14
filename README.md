@@ -12,6 +12,7 @@
 * [Math Random](https://thegicode.github.io/javascript-recipe/math-random.html)
 * [Math 수학 함수](https://thegicode.github.io/javascript-recipe/math-maths.html)
 * [Math 삼각 함수](https://thegicode.github.io/javascript-recipe/math-trigonometric.html)
+* [String CharAt문자열에서 문자 추출)](https://thegicode.github.io/javascript-recipe/string-charat.html)
 
 ## 이벤트 처리
 * [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
@@ -29,7 +30,7 @@
 * [입력된 키 정보 확인](https://thegicode.github.io/javascript-recipe/key.html)
 * [탭 화면 이벤트 처리](https://thegicode.github.io/javascript-recipe/tab-event.html)
 * [화면 사이즈 이벤트 처리](https://thegicode.github.io/javascript-recipe/event-resize.html)
-* [사이즈 벗어난 화면 처리하기](https://thegicode.github.io/javascript-recipe/media-matches.html)
+* [사이즈 벗어난 화면 처리하기](https://thegicode.github.io/javascript-recipe/match-media.html)
 * [이벤트 작동 설정하기](https://thegicode.github.io/javascript-recipe/dispatch-event.html)
 * [기본 이벤트 작동 해지 설정하기](https://thegicode.github.io/javascript-recipe/event-prevent.html)
 * [드래그 앤 드롭 기능 사용](https://thegicode.github.io/javascript-recipe/drag-drop.html)

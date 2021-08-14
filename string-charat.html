@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>문자열에서 문자 다루기(문자열에서 문자 추출하기)</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열에서 문자 다루기(문자열에서 문자 추출하기)</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>문자열.charAt([인덱스*]</th>
+                <td>지정한 인덱스의 문자를 추출</td> 
+                <td>문자</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+    <p>검색창에 입력한 글자와 일치하는 검색 결과를 나타내는 샘플</p>
+
+    <section>
+        <style>
+            section{
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid #ddd;
+            }
+            .hide{
+                display: none
+            }
+
+            header{
+                margin-bottom: 1rem;
+            }
+
+            label{
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+
+        <header>
+            <label>
+                <span>지역명의 첫 번째 글자를 입력해 주세요.</span>
+                <input type="text" maxlength="1" id="searchWordInput">
+            </label>
+        </header>
+        <div id="prefectureList">
+            <button data-name="속초" data-phonetic="sokcho">속초</button>
+            <button data-name="부산" data-phonetic="busan">부산</button>
+            <button data-name="포항" data-phonetic="pohang">포항</button>
+            <button data-name="상주" data-phonetic="sangju">상주</button>
+            <button data-name="서울" data-phonetic="seoul">서울</button>
+            <button data-name="제주" data-phonetic="jeju">제주</button>
+        </div>
+
+        <script>
+            /** 검색어 */
+            const searchwordText = document.querySelector('#searchWordInput')
+
+            /** 지역 리스트 */
+            const prefectureList = document.querySelectorAll('#prefectureList button')
+
+            // 문자가 입력될 때마다 데이트 체크 작업 실행
+            searchwordText.addEventListener('keyup', () => {
+
+                // 입력한 검색어
+                const searchWord = searchwordText.value
+
+                // 지역 리스트의 루프 처리
+                // element는 각 요소에 해당함
+                prefectureList.forEach( (element) => {
+
+                    // 검색어가 없으면 모든 요소를 표시
+                    if(!searchWord || searchWord === '') {
+                        element.classList.remove('hide')
+                        return
+                    }
+
+                    // 데이터 name 가져오기
+                    const prefectureName = element.dataset.name
+                    // 데이터 영문 name 가져오기
+                    const phonetic = element.dataset.phonetic
+
+                    // 검색어와 첫 번째 글자 일치 여부에 따라 hide 클래스 사용 결정
+                    // hide 클래스가 사용된 요소는 화면에 표시하지 않음
+                    if( 
+                        searchWord.charAt(0) === prefectureName.charAt(0) ||
+                        searchWord.charAt(0) === phonetic.charAt(0)
+                    ) {
+                        // 검색어의 첫 번째 글자가 일치하는 경우 hide 클래스를 제거
+                        element.classList.remove('hide')
+                    } else {
+                        // 검색어의 첫 번째 글자가 일치하지 않는 경우 hide 클래스를 추가
+                        element.classList.add('hide')
+                    }
+
+
+                })
+
+            })
+
+
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
