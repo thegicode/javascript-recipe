@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>정규표현식 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>정규표현식 사용하기</h1>
+
+    <h2>Syntax</h2>
+    
+    <h2>Examples</h2>
+
+    <section>
+        <h3>Ex1</h3>
+        <style>
+        </style>
+
+        <script>
+            // 정규 표현을 사용한 코드
+            if (/iPhone|iPod|iPad/.test(navigator.userAgent)) {
+                console.log('[정규 표현] 접속한 브라우저는 iOS입니다.');
+            }
+
+            // 정규표현을 사용하지 않은 코드
+            if ( 
+                navigator.userAgent.includes('iPhone') ||
+                navigator.userAgent.includes('iPod') ||
+                navigator.userAgent.includes('iPad') 
+            ) {
+                console.log('[정규 표현이 아닌] 접속한 브라우저는 iOS입니다.');
+            }
+        </script>
+
+    </section>
+
+    <h2>정규 표현 패턴의 표기</h2>
+    <p>/패턴/ : 문자열의 패턴은 내용의 앞뒤에 /를 삽입</p>
+
+    <table>
+        <thead>
+            <th>패턴</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>x</th>
+                <td>문자x</td> 
+            </tr>
+            <tr>
+                <th>xyz</th>
+                <td>문자열 xyz</td> 
+            </tr>
+            <tr>
+                <th>[xyz]</th>
+                <td>x, y, z 중 하나의 문자</td> 
+            </tr>
+            <tr>
+                <th>[a-z]</th>
+                <td>a~z중 하나의 문자, [a-f], [A-Za-z] 방식도 가능</td> 
+            </tr>
+            <tr>
+                <th>[^xyz]</th>
+                <td>x, y, z 외 하나의 문자</td> 
+            </tr>
+            <tr>
+                <th>[^a-z]</th>
+                <td>a~z 외 하나의 문자</td> 
+            </tr>
+            <tr>
+                <th>abc|xyz</th>
+                <td>문자열 abc 혹은 xyz</td> 
+            </tr>
+            <tr>
+                <th>[숫자]</th>
+                <td>반복횟수</td> 
+            </tr>
+            <tr>
+                <th>^x</th>
+                <td>시작 문자 x</td> 
+            </tr>
+            <tr>
+                <th>x$</th>
+                <td>종료 문자 x</td> 
+            </tr>
+            <tr>
+                <th>.</th>
+                <td>하나의 문자(줄바꿈 코드 제외)</td> 
+            </tr>
+            <tr>
+                <th>x*</th>
+                <td>0개 이상 계속되는 x <br>
+                    'va*'는 v 뒤의 a가 0회 이상 계속되는 상태를 나타낸다.
+                </td> 
+            </tr>
+            <tr>
+                <th>\</th>
+                <td>다음에 오는 문자를 escaple 처리 <br>
+                    정규표현으로 사용되는 문자의 이스케이프 처리를 위해 사용 <br>
+                    [ 문자의 이스케이프 처리는 \[ 의 패턴을 사용
+                </td> 
+            </tr>
+            <tr>
+                <th>\d</th>
+                <td>숫자 [0-9]</td> 
+            </tr>
+            <tr>
+                <th>\D</th>
+                <td>숫자가 아닌 문자 [^0-9]</td> 
+            </tr>
+            <tr>
+                <th>\w</th>
+                <td>영문, 숫자, 언더바[A-Za-z0-9_]</td> 
+            </tr>
+            <tr>
+                <th>\s</th>
+                <td>공백문자(스페이스, 탭, 줄바꿈 등)</td> 
+            </tr>
+            <tr>
+                <th>\S</th>
+                <td>공백 문자 이외의 문자[^\s]</td> 
+            </tr>
+            <tr>
+                <th>\t</th>
+                <td>수평탭</td> 
+            </tr>
+            <tr>
+                <th>\n</th>
+                <td>줄바꿈 코드</td> 
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

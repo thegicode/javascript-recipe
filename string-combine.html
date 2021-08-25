@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>문자열 합치기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열 합치기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>문자열1 + 문자열2 + 문자열3 + ...</th>
+                <td>문자열1에 문자열2와 문자열3을 결합</td> 
+            </tr>
+            <tr>
+                <th>`&{문자열1}&{문자열2}&{문자열3}`</th>
+                <td>문자열 1, 2, 3을 결합</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>Ex1</h3>
+        <style>
+            section{
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid #ddd;
+            }
+            .name_container{
+                display: flex;
+            }
+            label{
+                flex: 1;
+            }
+            #fullName {
+                height: 50px;
+                border-bottom: 1px solid #ddd;
+                font-size: 2rem;
+            }
+        </style>
+
+        <div class="name_container">
+            <label>성
+                <input id="familyNameText" class="text" type="text">
+            </label>
+            <label>이름
+                <input id="firstNameText" class="text" type="text">
+            </label>
+        </div>
+        <p id="fullName"></p>
+
+        <script>
+            /** 성 입력란 */
+            const familyNameText = document.querySelector('#familyNameText');
+
+            /** 이름 입력란 */
+            const firstNameText = document.querySelector('#firstNameText');
+
+            /** 성명 */
+            const fullName = document.querySelector('#fullName');
+
+            // 문자가 입력될 때마다 onKeyUp() 실행
+            familyNameText.addEventListener('keyup', onKeyUp);
+            firstNameText.addEventListener('keyup', onKeyUp);
+
+            /** 문자가 입력될 때마다 실행되는 함수 */
+            function onKeyUp() {
+                // 성
+                const familyName = familyNameText.value;
+                // 이름
+                const firstName = firstNameText.value;
+                // 성명을 출력
+                fullName.innerHTML = `${familyName} ${firstName}`;
+            }
+        </script>
+
+    </section>
+
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

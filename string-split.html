@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>문자열 나누기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열 나누기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>문자열.split([*기준문자], [*최대분할수])</th>
+                <td>지정 범위 내 문자열 반환</td> 
+                <td>문자열</td> 
+            </tr>
+            <tr>
+                <th>문자열.split([*정규표현], [*최대분할수])</th>
+                <td>지정 범위 내 문자열 반환</td> 
+                <td>문자열</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>split()는 첫 번째 인수로 구분된 배열을 반환한다.</p>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>Ex1</h3>
+        <script>
+            const myUrl = 'http://example.com/?id=123456&name=Lion&age=28';
+            console.log( myUrl.split('&') );
+            //  ["http://example.com/?id=123456", "name=Lion", "age=28"]
+
+            console.log( myUrl.split(/&|\?/) );
+            //  ["http://example.com/", "id=123456", "name=Lion", "age=28"]
+
+            console.log( 'Javascript'.split('') );
+            // ["J", "a", "v", "a", "s", "c", "r", "i", "p", "t"]
+
+            console.log( 'Javascript'.split() );
+            // ["Javascript"]
+
+        </script>
+    </section>
+
+    <section>
+        <h3>Ex2</h3>
+        <style>
+            section{
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid #ddd;
+            }
+            .hide{
+                display: none
+            }
+
+            header{
+                margin-bottom: 1rem;
+            }
+
+            label{
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <td class="id"></td>
+            </tr>
+            <tr>
+                <th>name</th>
+                <td class="name"></td>
+            </tr>
+            <tr>
+                <th>age</th>
+                <td class="age"></td>
+            </tr>
+        </table>
+
+        <script>
+
+            // ?id=dog&name=양송&age=7
+           
+            // 해시 데이터 보관을 위한 객체
+            const hashes = {};
+
+            // URL의 파라미터를 배열로 가져오기
+            const parameters = 
+                location.search
+                .split(/&|\?/)
+                .filter( (value) => {
+                    return value.includes('=');
+                });
+
+            // hashes[key] = value의 형태로 객체에 보관
+            parameters.forEach( (parameter) => {
+                // hoge = fuga를 ['hoge, 'fuga] 배열로 정리
+                const parameterList = parameter.split('=');
+                const key = parameterList[0];
+                // value를 디코딩하기
+                const value = decodeURIComponent(parameterList[1]);
+
+                hashes[key] = value
+            });
+            
+
+            // hashes에 id가 포함된 경우 처리 작업
+            if (hashes['id'] != null) {
+                document.querySelector('.id').innerHTML = hashes['id'];
+            }
+            if (hashes['name'] != null) {
+                document.querySelector('.name').innerHTML = hashes['name'];
+            }
+            if (hashes['age'] != null) {
+                document.querySelector('.age').innerHTML = hashes['age'];
+            }
+
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
