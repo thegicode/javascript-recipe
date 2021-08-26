@@ -19,6 +19,7 @@
 - [문자열 합치기](https://thegicode.github.io/javascript-recipe/string-combine.html)
 - [정규표현식 사용하기](https://thegicode.github.io/javascript-recipe/regular.html)
 - [정규표현식으로 특정 문자 검색하기](https://thegicode.github.io/javascript-recipe/regular-test.html)
+- [소숫점 자리수 지정하기](https://thegicode.github.io/javascript-recipe/number-decimalPoint.html)
 
 ## 이벤트 처리
 
