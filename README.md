@@ -27,6 +27,10 @@
 -   [문자열 URI Escape 처리하기](https://thegicode.github.io/javascript-recipe/encodeURI.html)
     -   예제: textarea에 입력하여 트위터에 게시
 
+## 데이터 다루기
+
+-   [배열요소 다루기](https://thegicode.github.io/javascript-recipe/array-forEach.html)
+
 ## 이벤트 처리
 
 -   [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
