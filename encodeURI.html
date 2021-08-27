@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>문자열 URI Escape 처리하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열 URI Escape 처리하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>encodeURI(문자열)</th>
+                <td>문자열을 인코딩</td> 
+                <td>문자열</td> 
+            </tr>
+            <tr>
+                <th>encodeURIComponent(문자열)</th>
+                <td>문자열을 인코딩</td> 
+                <td>문자열</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>eocodeURI가 이스케이프 처리하지 않는 문자</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>/ ? & = + : @ $ ; , #</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+    <p>URI에 한글이 포함되면 그대로 사용할 수 없기 때문에 인코딩이 필요. <br>
+        encodeURI와 encodeURIComponent는 문자열 인코딩을 위한 메소드로 숫자, -, _, ., !, ~, *, ', (, )는 Escape 처리되어 인코딩되지 않는다.
+    </p>
+
+    <section>
+        <h3>예제 1</h3>
+
+        <script>
+            console.log( encodeURI('http://example.com/귀여운 고양이 페이지.html') ); 
+            // http://example.com/%EA%B7%80%EC%97%AC%EC%9A%B4%20%EA%B3%A0%EC%96%91%EC%9D%B4%20%ED%8E%98%EC%9D%B4%EC%A7%80.html
+
+            console.log( encodeURIComponent('http://example.com/귀여운 고양이 페이지.html'));
+            // http%3A%2F%2Fexample.com%2F%EA%B7%80%EC%97%AC%EC%9A%B4%20%EA%B3%A0%EC%96%91%EC%9D%B4%20%ED%8E%98%EC%9D%B4%EC%A7%80.html
+
+        </script>
+
+    </section>
+
+    <section class="ex2">
+        <h3>예제 2</h3>
+        <p>textarea에 한글과 해시태그를 입력하여 이를 트위터에 게시하는 샘플</p>
+        <style>
+            .ex2 .wrap {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                margin: 0 auto;
+                padding: 0 2rem 1rem;
+                border-radius: 1rem;
+                border: 1px solid #ddd;
+                background-color: #f8f8f8;
+            }
+            .ex2 textarea {
+                height: 50px;
+                /* border-radius: 1rem; */
+                background-color: transparent;
+            }
+            .ex2 button {
+                align-self: flex-end;
+                margin-top: 10px;
+                border-radius: 1rem;
+                padding: 10px 1rem;
+            }
+        </style>
+
+        <div class="wrap">
+            <h4>트윗하고 싶은 내용을 입력해 주세요.</h4>
+            <textarea id="tweetTextArea"></textarea>
+            <button id="tweetButton">트윗하기</button>
+        </div>
+
+        <script>
+            document.querySelector('#tweetButton').addEventListener('click', () => {
+
+                // 트윗 내용 가져오기
+                let tweetText = document.querySelector('#tweetTextArea').value;
+
+                // #JavaScript와 빈칸을 트윗 내용에 추가하기
+                tweetText += ' #JavaScript';
+
+                // 인코딩
+                const encodedText = encodeURIComponent(tweetText);
+
+                // 링크 작성하기
+                const tweetURL = 
+                    `https://twitter.com/intent/tweet?text=${encodedText}`;
+
+                // 링크 열기
+                window.open(tweetURL);
+            })
+        </script>
+
+    </section>
+
+    <section>
+        <h3>예제 3</h3>
+
+        <script>
+            console.log( decodeURI('http://example.com/%EA%B7%80%EC%97%AC%EC%9A%B4%20%EA%B3%A0%EC%96%91%EC%9D%B4%20%ED%8E%98%EC%9D%B4%EC%A7%80.html') ); 
+            // http://example.com/귀여운 고양이 페이지.html
+
+            console.log( decodeURIComponent('http%3A%2F%2Fexample.com%2F%EA%B7%80%EC%97%AC%EC%9A%B4%20%EA%B3%A0%EC%96%91%EC%9D%B4%20%ED%8E%98%EC%9D%B4%EC%A7%80.html'));
+            // http://example.com/귀여운 고양이 페이지.html
+
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

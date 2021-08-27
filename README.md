@@ -24,6 +24,8 @@
     -   예제: 15초 카운트 다운
 -   [문자열 길이 맞추기](https://thegicode.github.io/javascript-recipe/string-pad.html)
     -   예제: 디지털 시계
+-   [문자열 URI Escape 처리하기](https://thegicode.github.io/javascript-recipe/encodeURI.html)
+    -   예제: textarea에 입력하여 트위터에 게시
 
 ## 이벤트 처리
 
