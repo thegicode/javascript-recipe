@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>문자열 길이 맞추기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>문자열 길이 맞추기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>문자열.padStart(전체길이, [추가문자열*])</th>
+                <td>문자열 시작 부분에 문자열 추가</td> 
+                <td>문자열</td> 
+            </tr>
+            <tr>
+                <th>문자열.padEnd(전체길이, [추가문자열*])</th>
+                <td>문자열 끝 부분에 문자열 추가</td> 
+                <td>문자열</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1</h3>
+
+        <script>
+           console.log( '5'.padStart(2, '0') ); // 05
+           console.log( 'ff'.padEnd(6, '0') ); // ff0000
+
+           console.log( '123'.padStart(3, '0') ); // 123
+           console.log( 'ff'.padStart(6) ); //      ff, 앞부분에 4개의 공백이 삽입됨    
+
+        </script>
+
+    </section>
+
+    <section class="ex2">
+        <h3>예제 2 : 디지털 시계, 현재 시간 표시</h3>
+        <style>
+            .ex2 .wrap {
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 600;
+                color: purple;
+            }
+            
+        </style>
+
+        <div class="wrap">
+            <span class="hour"></span> :
+            <span class="minute"></span> :
+            <span class="second"></span>
+        </div>
+
+        <script>
+            const hourElement = document.querySelector('.hour');
+            const minuteElement = document.querySelector('.minute');
+            const secondElement = document.querySelector('.second');
+
+            update();
+
+            /** 
+             * 현재 시간 표시 처리
+             */
+            function update() {
+                const currentTime = new Date();
+
+                // 시간 표시
+                const hour = currentTime.getHours();
+                hourElement.innerText = addZeroPadding(hour);
+
+                // 분 표시
+                const minute = currentTime.getMinutes();
+                minuteElement.innerText = addZeroPadding(minute);
+
+                // 초 표시
+                const second = currentTime.getSeconds();
+                secondElement.innerText = addZeroPadding(second);
+
+                // 프레임에서 update() 재실행
+                requestAnimationFrame(update);
+            }
+
+            /**
+             * 2자리 형식이 되도록 앞부분에 0을 추가하는 함수
+             * @param num
+             * @returns {string}
+             */
+            function addZeroPadding(num) {
+                return String(num).padStart(2, '0');
+            }
+        </script>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
