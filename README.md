@@ -29,7 +29,8 @@
 
 ## 데이터 다루기
 
--   [배열요소 다루기](https://thegicode.github.io/javascript-recipe/array-forEach.html)
+-   [배열 요소 다루기](https://thegicode.github.io/javascript-recipe/array-forEach.html)
+-   [배열 요소 부분 변환하기](https://thegicode.github.io/javascript-recipe/array-splice.html)
 
 ## 이벤트 처리
 
