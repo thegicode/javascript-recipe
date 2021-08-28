@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>배열요소 부분 변환하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>배열요소 부분 변환하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>배열.find(콜백함수)</th>
+                <td>콜백 함수 조건에 맞는 첫 요소</td> 
+                <td>요소</td>
+            </tr>
+            <tr>
+                <th>배열.findIndex(테스트함수)</th>
+                <td>콜백 함수 조건에 맞는 첫 요소의 인덱스</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Syntax --- 콜백함수</h2>
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>([요소*]. [인덱스*], [기존배열*]) => 진릿값</th>
+                <td>요소를 확인하고 진릭값을 반환</td> 
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1</h3>
+        <script>
+            const myArray = ['곰', '사자', '여우', '원숭이'];
+            const targetUser = myArray.find( element =>  element === '사자');
+            console.log(targetUser); // 사자
+        </script>
+    </section>
+
+    <section class="ex2">
+        <h3>예제 2</h3>
+        <p>유저 정보 배열에서 가져온 데이터를 표시하는 검색 시스템</p>
+
+        <div class="wrap">
+            <div class="search-word-wrapper">
+                <label>유저ID
+                    <input type="text" id="search-id-input">
+                </label>
+            </div>
+
+            <p id="search-result">
+                유저 검색 결과 없음
+            </p>
+        </div>
+
+        <script>
+            const userDataList = [
+                { id: 123, name: '곰'},
+                { id: 1024, name: '사자'},
+                { id: 6021, name: '여우'}
+                ];
+
+            const searchIdInput = document.querySelector('#search-id-input');
+            const searchResult = document.querySelector('#search-result');
+
+            // 문자가 입력될 때마다 내용 체크
+            searchIdInput.addEventListener('keyup', () => {
+                // 검색 ID 가져오기
+                const searchId = Number(event.target.value)
+                findUser(searchId)
+            });
+
+            /* 유저 검색 */
+            function findUser(searchId) {
+                // 해당 데이터 가져오기
+                const targetData = userDataList.find( data => data.id === searchId);
+                const targetIndex = userDataList.findIndex( data => data.id === searchId);
+                console.log('targetIndex', targetIndex)
+
+                // 해당 데이터가 없으면 '유저 검색 결과 없음' 표시 후 종료
+                if (targetData == null) {
+                    searchResult.textContent = '유저 검색 결과 없음';
+                    return;
+                }
+
+                // 검색 결과의 이름을 표시
+                searchResult.textContent = targetData.name;
+            }
+
+
+        </script>
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
