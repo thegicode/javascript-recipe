@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>배열 요소 정렬 방법 지정하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>배열 요소 정렬 방법 지정하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>배열.sort([비교함수*])</th>
+                <td>배열을 비교 함수로 정렬하기</td> 
+                <td>배열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1</h3>
+        <script>
+           const array1 = [10, 2, 3, 4, 5];
+
+        //    console.log(array1.sort())
+
+           array1.sort( (a, b) => {
+               // a가 b보다 작으면 a, b의 순서로 정렬
+               if (a < b) {
+                   return 1;
+               }
+
+               // a와 b가 같으면 순서 변화 없음
+               if (a === b) {
+                   return 0;
+               }
+
+               // a가 b보다 크면 b, a의 순서로 정렬
+               if (a > b) {
+                   return -1;
+               }
+           });
+           console.log( array1 );
+
+        //     array1.sort( (a, b) => {
+        //         return a-b;
+        //     });
+        //    console.log( array1 );
+
+        //    array1.sort( (a, b) => {
+        //         return b-a;
+        //     });
+        //    console.log( array1 );
+
+        </script>
+    </section>
+
+    <section>
+
+        <h3>예제 2 : 객체를 포함하는 배열 정렬하기</h3>
+        <div class="button-wrapper">
+            <button class="ascending">오름차순</button>
+            <button class="descending">내림차순</button>
+        </div>
+        <ul class="user_list">
+
+        </ul>
+
+        <script>
+            // 데이터
+            const userDataList = [
+                { id: 2, name: '곰'},
+                { id: 10, name: ' 여우'},
+                { id: 4, name: '사자'},
+                { id: 29, name: '기린'},
+                { id: 101, name: '호랑이'}
+            ];
+
+            // 데이터 표시 업데이트
+            function updatList() {
+                let listHtml = '';
+
+                for (const data of userDataList) {
+                    listHtml += `<li>${data.id} : ${data.name}</li>`;
+                }
+
+                document.querySelector('.user_list').innerHTML = listHtml;
+            }
+
+            // 오름차순 정렬
+            function sortByAscending() {
+                userDataList.sort( (a, b) => {
+                    return a.id - b.id;
+                });
+                updatList();
+            }
+
+            // 내림차순 정렬
+            function sortByDescending() {
+                userDataList.sort( (a, b) => {
+                    return b.id - a.id;
+                });
+                updatList();
+            }
+
+            // 오름차순 버튼 클릭 시 처리 작업
+            document.querySelector('.ascending')
+                .addEventListener('click', () => {
+                    sortByAscending();
+                });
+            // 내림차순 버튼 클릭 시 처리 작업
+            document.querySelector('.descending')
+                .addEventListener('click', () => {
+                    sortByDescending();
+                });
+
+            // 오름차순으로 초기 정렬
+            sortByAscending();
+
+        </script>
+    </section>
+
+    <p>sort()에서 비교함수를 생략하면 문자열의 유니코드 순서대로 정렬된다. 비교함수를 생략하면 기대하는 정렬 결과를 얻을 수 없다. 
+        그러므로 특별한 이유가 없다면 sort()에 비교함수를 명시해야 한다.
+    </p>
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
