@@ -32,6 +32,7 @@
 -   [배열 요소 다루기](https://thegicode.github.io/javascript-recipe/array-forEach.html)
 -   [배열 요소 부분 변환하기](https://thegicode.github.io/javascript-recipe/array-splice.html)
 -   [조건을 만족하는 배열 요소 가져오기](https://thegicode.github.io/javascript-recipe/array-find.html)
+    -   예제: 유저 정보 배열에서 가져온 데이터를 표시하는 검색 시스템
 -   [배열 요소 정렬 방법 지정하기](https://thegicode.github.io/javascript-recipe/array-sort.html)
     -   예제: 객체를 포함하는 배열 정렬하기
 
