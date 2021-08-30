@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>배열 요소 하나로 정리하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>배열 요소 하나로 정리하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>배열.reduce(콜백함수, [초기화*])</th>
+                <td>요소(좌->우)를 처리하여 하나의 값 생성</td> 
+                <td>임의 지정값</td>
+            </tr>
+            <tr>
+                <th>배열.reduceRight(콜백함수, [초기화*])</th>
+                <td>요소(우->좌)를 처리하여 하나의 값 생성</td> 
+                <td>임의 지정값</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Syntax -- 콜백함수</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>((이전요소, 현재요소, 인덱스, 기존배열) => {/*처리내용*/})</th>
+                <td>임의의 처리</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1 : 배열에 3개의값을 넣고 합계를 구하는 샘플</h3>
+        <script>
+            const priceList = [100, 500, 900];
+
+            const sum = priceList.reduce((previous, current) => {
+                return previous + current
+            });
+
+            console.log(sum); // 1500
+
+            // for문 사용
+            // let sum = 0;
+            // for (const price of priceList) {
+            //     sum += price;
+            // }
+
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 2 : 2차 배열을 1차 배열로 반드는 플래트닝Flattening에도 사용할 수 있다.</h3>
+        <script>
+            const array = [['바나나', '사과', '딸기'], ['귤', '포도']];
+            const flattenedArray = array.reduce((previousValue, currentValue) => {
+                return previousValue.concat(currentValue);
+            });
+            console.log(flattenedArray); //  ["바나나", "사과", "딸기", "귤", "포도"]
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 3 : reduce, reduceRight</h3>
+        <script>
+            const array2 = ['사자', '여우', '호랑이'];
+
+            const members1 = array2.reduce( (previous, current) => {
+                return `${previous}와 ${current}`;
+            });
+            console.log(members1); // 사자와 여우와 호랑이
+
+            const members2 = array2.reduceRight( (previous, current) => {
+                return `${previous}와 ${current}`;
+            });
+            console.log(members2); // 호랑이와 여우와 사자
+        </script>
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

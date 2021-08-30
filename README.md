@@ -36,6 +36,7 @@
 -   [배열 요소 정렬 방법 지정하기](https://thegicode.github.io/javascript-recipe/array-sort.html)
     -   예제: 객체를 포함하는 배열 정렬하기
 -   [배열 요소 알파벳순 정렬하기](https://thegicode.github.io/javascript-recipe/array-sortString.html)
+-   [배열 요소 하나로 정리하기](https://thegicode.github.io/javascript-recipe/array-reduce.html)
 
 ## 이벤트 처리
 
