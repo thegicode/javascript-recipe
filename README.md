@@ -38,6 +38,7 @@
 -   [배열 요소 알파벳순 정렬하기](https://thegicode.github.io/javascript-recipe/array-sortString.html)
 -   [배열 요소 하나로 정리하기](https://thegicode.github.io/javascript-recipe/array-reduce.html)
 -   [유사 배열 객체를 배열로 변화하기](https://thegicode.github.io/javascript-recipe/array-arrayLike.html)
+-   [배열 섞기(셔플)](https://thegicode.github.io/javascript-recipe/array-shuffle.html)
 
 ## 이벤트 처리
 
