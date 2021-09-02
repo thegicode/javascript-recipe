@@ -42,6 +42,7 @@
 -   [객체 복사하기](https://thegicode.github.io/javascript-recipe/object-copy.html)
 -   [객체 속성 확인하기](https://thegicode.github.io/javascript-recipe/object-property.html)
 -   [객체 요소 값 확인하기](https://thegicode.github.io/javascript-recipe/object-entries.html)
+-   [객체 요소 분할 대입(비구조화 할당)하기](https://thegicode.github.io/javascript-recipe/object-destructuring.html)
 
 ## 이벤트 처리
 

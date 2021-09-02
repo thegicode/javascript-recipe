@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>객체 요소 분할 대입(비구조화 할당)하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>객체 요소 분할 대입(비구조화 할당)하기</h1>
+
+    <h2>적용</h2>
+    <ul>
+        <li>객체의 데이터를 정리하여 대입하고 싶을 때</li>
+        <li>객체의 일부 데이터를 추출하여 사용하고 싶을 때</li>
+    </ul>
+    
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{변수1, 변수2, ...} = 객체</th>
+                <td>객체의 데이터를 각 변수에 대입</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1</h3>
+        <script>
+            const userData1 = {
+                id: 1, 
+                name: '사자',
+                age: 26
+            };
+
+            const { id, name, age } = userData1;
+
+            console.log( id ); // 1
+            console.log( name ); // 사자
+            console.log( age ); // 26
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 2</h3>
+        <p>변수의 정의 순서와 객체 키의 순서는 상관이 없으며, 존재하지 않는 키는 undefined를 반환</p>
+        <script>
+            const userData2 = {
+                id2: 1, 
+                name2: '사자',
+                age2: 26
+            };
+
+            const { age2, id2, address  } = userData2;
+
+            console.log( '\n' ); 
+            console.log( age2 ); // 26
+            console.log( id2 ); // 1
+            console.log( address ); // undefined
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 2</h3>
+        <p>별도의 이름을 지정</p>
+        <script>
+            const userData3 = {
+                id: 1, 
+                name: '사자'
+            };
+
+            // name의 키의 값을 myName에 대입
+            const { name: myName  } = userData3;
+
+            console.log( '\n' ); 
+            console.log( myName ); // 사자
+        </script>
+    </section>
+
+
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
