@@ -40,6 +40,7 @@
 -   [유사 배열 객체를 배열로 변화하기](https://thegicode.github.io/javascript-recipe/array-arrayLike.html)
 -   [배열 섞기(셔플)](https://thegicode.github.io/javascript-recipe/array-shuffle.html)
 -   [객체 복사하기](https://thegicode.github.io/javascript-recipe/object-copy.html)
+-   [객체 속성 확인하기](https://thegicode.github.io/javascript-recipe/object-property.html)
 
 ## 이벤트 처리
 
