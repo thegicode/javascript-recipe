@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>객체 복사하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>객체 복사하기</h1>
+    
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{...복사대상객체}</th>
+                <td>대상 객체의 각 요소를 분할 대입(복사)</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Object.assign([], 복사대상객체)</th>
+                <td>객체를 복사</td> 
+                <td>객체</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1</h3>
+        <script>
+            const object1 = {
+                result: true,
+                members: [
+                    {id: 1, name: '여우'},
+                    {id: 2, name: '호랑이'},
+                    {id: 3, name: '사자'},
+                ]
+            }
+
+            // 객체를 복사
+            const copiedObject1 = Object.assign({}, object1);
+            console.log(copiedObject1);
+            // {result: true, members: Array(3)}
+            // members: Array(3)
+            // 0: {id: 1, name: "여우"}
+            // 1: {id: 2, name: "호랑이"}
+            // 2: {id: 3, name: "사자"}
+            // length: 3
+            // [[Prototype]]: Array(0)
+            // result: true
+
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 2</h3>
+        <p>Spread 연산자 '...' 를 사용</p>
+        <script>
+            const object2 = {
+                result: true,
+                members: [
+                    {id: 1, name: "여우"},
+                    {id: 2, name: "호랑이"},
+                    {id: 3, name: "사자"}
+                ]
+            };
+
+            // 객체를 복사
+            const copiedObject2 = {...object2};
+            console.log(copiedObject2);
+            // members: (3) [{…}, {…}, {…}]
+            // result: true
+            // [[Prototype]]: Object
+
+
+        </script>
+    </section>
+
+    <p>Object.assign()과 Spread 연산자를 사용하면 얕은 복사 Shallow Copy가 이루어진다. <br>
+    얕은 복사란, 복사 전 데이터와 복사 후의 데이터가 같은 곳은 참조하는 것이다. <br>
+    그러므로 복사 전의 데이터를 수정하면 복사 후의 데이터도 영향을 미친다. </p>
+
+    <section>
+        <h3>예제 3 : Shallow Copy</h3>
+        <script>
+            // 복사 전 객체
+            const object3 = {
+                id: 1,
+                members: ['사자', '토끼', '거북이']
+            };
+
+            // 객체의 복사
+            const copiedObject3 = {...object3};
+
+            // 복사 전 객체 members 속성의 배열을 수정
+            object3.members[0] = 'John';
+
+            // 복사 된 members의 속성의 배열에도 영향을 받음
+            console.log(copiedObject3.members[0]);
+        </script>
+    </section>
+
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
