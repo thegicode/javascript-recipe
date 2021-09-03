@@ -48,6 +48,7 @@
 ## 데이터 심화
 
 -   [Value 전달과 Reference 전달 이해하기](https://thegicode.github.io/javascript-recipe/primitive-vs-reference.html)
+-   [Null 이해하기](https://thegicode.github.io/javascript-recipe/null.html)
 
 ## 이벤트 처리
 
