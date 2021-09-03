@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Value 전달과 Reference 전달 이해하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Value 전달과 Reference 전달 이해하기</h1>
+
+    <h2>적용</h2>
+    <ul>
+        <li>원시 타입과 객체 타입의 처리를 이해하고 싶을 때</li>
+    </ul>
+    
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>데이터 타입</th>
+            <th>데이터 전달 방식</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Primitive 타입</th>
+                <td>값의 전달</td> 
+            </tr>
+            <tr>
+                <th>Object 타입</th>
+                <td>참조의 전달</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section>
+        <h3>예제 1: 값에 의한 전달 방식</h3>
+        <script>
+            // 1. 변수 a에 100을 대입한다.
+            // 2. 변수 b에 변수 a를 대입한다. 변수 a에 대입한 값 100을 복사하여 변수 b에 전달한다. (값에 의한 전달)
+            // 3. 변수 a에 500을 대입한다.
+            // 4. 변수 b의 데이터는 변함없이 100이 출력된다.
+            (function ex1() {
+                let a = 100;
+                let b = a;
+                a = 500;
+                console.log(b); // 100
+            })();
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 2: 참조에 의한 전달 방식</h3>
+        <script>
+            // 변수 a에서 변수 b로 데이터를 전달하면 데이터를 복사하는 것이 아니라
+            // 데이터가 저장된 메모리의 위치가 전달된다.
+
+            // 1. 변수 a에 1, 2, 3을 참조하는 배열을 대입힌다.
+            // 2. 변수 b에 변수 a를 대입힌다. 변수 a에 저장된 배열의 참조 값이 변수 b에 전달된다. (참조에 의한 전달)
+            // 3. 변수 a에 저장된 배열의 첫 번째 요소가 100을 참조한다.
+            // 4. 변수 b와 변수 a는 같은 배열을 참조하기 때문에 [100, 2, 3]이 출력된다.
+            (function ex2() {
+                let a  =  [1, 2, 3];
+                let b = a;
+                a[0] = 100;
+                console.log(b);
+            })();
+           
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 3: 함수의 인수 - 원시타입</h3>
+        <p>함수의 인수 역시 원시 타입은 값, 객체 타입은 참조를 전달한다.</p>
+        <script>
+            (function ex3() {
+                function myFunction(x) {
+                    x = x + 2;
+                }
+
+                let a = 10;
+
+                myFunction(a);
+
+                // 10이 출력 (2가 더해진 12가 아님을 확인)
+                console.log(a); // 10
+            })();
+        </script>
+    </section>
+
+    <section>
+        <h3>예제 4: 함수의 인수 - 객체 타입</h3>
+        <p>함수의 객체 타입의 데이터를 전달하는 코드 <br>
+            함수 내 처리 결과는 변수 a에 영향을 준다.
+        </p>
+        <script>
+            (function ex3() {
+                function myFunction(x) {
+                    x[0] = 100;
+                }
+
+                let a = [1, 2, 3];
+
+                myFunction(a);
+
+                // [100, 2, 3]을 출력 ( [1, 2, 3]이 아님을 확인)
+                console.log(a); // [100, 2, 3]
+            })();
+        </script>
+    </section>
+
+
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

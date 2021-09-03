@@ -45,6 +45,10 @@
 -   [객체 요소 분할 대입(비구조화 할당)하기](https://thegicode.github.io/javascript-recipe/object-destructuring.html)
 -   [객체 수정 제한하기](https://thegicode.github.io/javascript-recipe/object-freeze.html)
 
+## 데이터 심화
+
+-   [Value 전달과 Reference 전달 이해하기](https://thegicode.github.io/javascript-recipe/primitive-vs-reference.html)
+
 ## 이벤트 처리
 
 -   [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
