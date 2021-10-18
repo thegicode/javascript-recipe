@@ -151,6 +151,9 @@
                 .filter( (value) => {
                     return value.includes('=');
                 });
+            
+            console.log( parameters );
+            // ['id=12345', 'name=Lion', 'age=28']
 
             // hashes[key] = value의 형태로 객체에 보관
             parameters.forEach( (parameter) => {
@@ -162,6 +165,9 @@
 
                 hashes[key] = value
             });
+
+            console.log( hashes );
+            // {id: '12345', name: 'Lion', age: '28'}
             
 
             // hashes에 id가 포함된 경우 처리 작업
