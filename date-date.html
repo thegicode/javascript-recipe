@@ -79,6 +79,11 @@
                 <td>일 가져오기</td> 
                 <td>숫자</td>
             </tr>
+            <tr>
+                <th>getDay()</th>
+                <td>요일 가져오기</td> 
+                <td>숫자(0 일요일, 6 토요일)</td>
+            </tr>
         </tbody>
     </table>
 
@@ -88,6 +93,9 @@
     <section>
         <h3>예제 1</h3>
         <div id="log"></div>
+        <div id="log2"></div>
+
+
 
         <script>
             const date = new Date()
@@ -103,6 +111,11 @@
             const label = `${year}년 ${month}월 ${day}`
 
             document.querySelector('#log').textContent = `오늘은 ${label}입니다.`
+
+            const day2 = date.getDay()
+            const dayList = ['일', '월', '화', '수', '목', '금', '토']
+            const label2 = dayList[day2]
+            document.querySelector('#log2').textContent = `오늘은 ${label2}요일입니다.`
 
         </script>
     </section>

@@ -54,8 +54,11 @@
 
 
 ## 날짜와 시간
-- [날짜 다루기](https://thegicode.github.io/javascript-recipe/date.html)
-- [시간 다루기](https://thegicode.github.io/javascript-recipe/time.html)
+- [날짜 다루기](https://thegicode.github.io/javascript-recipe/date-date.html)
+- [시간 다루기](https://thegicode.github.io/javascript-recipe/date-time.html)
+- [현재 시간과 날짜 가져오기](https://thegicode.github.io/javascript-recipe/date-locale.html)
+- [날짜 문자열의 타임스탬프 확인하기](https://thegicode.github.io/javascript-recipe/date-parse.html)
+
 
 
 ## 이벤트 처리
