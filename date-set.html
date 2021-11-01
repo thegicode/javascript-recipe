@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>날짜 설정하기</title>
+    <style>
+        body{
+            margin: 2rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>날짜 설정하기</h1>
+
+    <h2>생성자 Constructure를 사용하는 방법</h2>
+    <script>
+        // 날짜와 시간 정보를 생성자의 인수로 전달한다. 
+        // 전달된 정보는 자동적으로 타입에 맞춰지며, 문자열로 날짜와 시간을 설정할 수 있다.
+        const date1 = new Date('2020/12/28 20:01:10')
+        const date2 = new Date('Mon Dec 28 2020 20:01:10')
+        console.log(date1) // Mon Dec 28 2020 20:01:10 GMT+0900 (한국 표준시)
+        console.log(date2) // Mon Dec 28 2020 20:01:10 GMT+0900 (한국 표준시)
+    
+        // 숫자로도 지정이 가능하다. 
+        // 숫자는 년, 월, 일, 시, 분, 초, 밀리초의 순서로 기입한다. 
+        const date3 = new Date(2020, 11, 28, 20, 1, 10)
+        console.log(date3) // Mon Dec 28 2020 20:01:10 GMT+0900 (한국 표준시)
+
+        // 타임스탬프로 사용할 수 있다. 
+        // 1970년 1월 1일 00:00:00부터 경과한 밀리초를 나타내며, getTime()을 사용해 현재의 타임스탬프를 가져올 수 있다.
+        const date4 = new Date(158801270000)
+        console.log(date4) // Mon Jan 13 1975 08:27:50 GMT+0900 (한국 표준시)
+    </script>
+
+    <h2>메소드 Method를 사용하는 방법</h2>
+    <script>
+        // Date 객체는 setXXX()의 형태로 년, 월, 일, 시, 분, 초, 밀리초를 지정할 수 있는 메소드를 가진다. 
+        // 인수에는 숫자값을 전달하며, setMonth()에서 0은 1월을 의미한다.
+        // setFullyear(년), setMonth(월), setDate(일), setHours(시), setMinute(분), setSeconds(초), setMilliseconds(밀리초)
+        const date5 = new Date()
+        date5.setFullYear(2021)
+        date5.setMonth(0)
+        date5.setDate(1)
+        date5.setHours(0)
+        date5.setMinutes(0)
+        date5.setSeconds(0)
+        console.log(date5) // Fri Jan 01 2021 00:00:00 GMT+0900 (한국 표준시)
+        console.log(date5.toLocaleString()) // 2021. 1. 1. 오전 12:00:00
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
