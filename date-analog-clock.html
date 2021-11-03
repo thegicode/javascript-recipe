@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>아날로그 시간 표시하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>아날로그 시간 표시하기</h1>
+
+    <div class="clock">
+        <div class="lineHour"></div>
+        <div class="lineMin"></div>
+        <div class="lineSec"></div>
+    </div>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        .clock {
+            border-radius: 50%;
+            border: 3px solid white;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .lineHour {
+            width: 10px;
+            height: 150px;
+            background: white;
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 5px);
+            transform-origin: bottom;
+        }
+
+        .lineMin {
+            width: 4px;
+            height: 200px;
+            background: white;
+            position: absolute;
+            top: calc(50% - 200px);
+            left: calc(50% - 2px);
+            transform-origin: bottom;
+        }
+
+        .lineSec {
+            width: 2px;
+            height: 200px;
+            background: #ccc;
+            position: absolute;
+            top: calc(50% - 200px);
+            left: calc(50% - 1px);
+            transform-origin: bottom;
+        }
+    </style>
+
+    <script>
+        setInterval( () => {
+            // 현재 시간 가져오기
+            const now = new Date()
+
+            // 시간을 단위로 추출
+            const h = now.getHours() // 시간(0~23)
+            const m = now.getMinutes() // 분(0~59)
+            const s = now.getSeconds() // 초(0~59)
+            
+            // 시계 바늘의 각도 반영
+
+            // 시침(시침은 시와 함께 분의 각도도 고려)
+            const degH = h * (360 / 12) + m * (360 / 12 / 60)
+            // 분침
+            const degM = m * (360 / 60)
+            // 초침
+            const degS = s * (360 / 60)
+
+            const elementH = document.querySelector('.lineHour')
+            const elementM = document.querySelector('.lineMin')
+            const elementS = document.querySelector('.lineSec')
+
+            elementH.style.transform = `rotate(${degH}deg)`
+            elementM.style.transform = `rotate(${degM}deg)`
+            elementS.style.transform = `rotate(${degS}deg)`
+
+        }, 50)
+    </script>
+    
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

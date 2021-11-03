@@ -63,6 +63,7 @@
 - [날짜 차이 구하기](https://thegicode.github.io/javascript-recipe/date-diff.html)
 - [경과 시간 확인하기](https://thegicode.github.io/javascript-recipe/date-elapsed.html)
 - [카운트다운](https://thegicode.github.io/javascript-recipe/date-countdown.html)
+- [아날로그 시간 표시하기](https://thegicode.github.io/javascript-recipe/date-analog-clock.html)
 
 ## 이벤트 처리
 
