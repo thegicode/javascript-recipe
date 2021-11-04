@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>캔버스에 디바이스 화소 맞추기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>캔버스에 디바이스 화소 맞추기</h1>
+
+    <p>
+        캔버스 요소는 화소의 비율 계산에 사용할 수 있다. <br> 
+        캔버스에 표시하고 싶은 사이즈에 화소 비율을 곱해서 값을 설정한다. <br>
+        표시 사이즈를 지정하는 스타일 시트를 확인해 보자.
+    </p>
+
+    <canvas></canvas>
+    <div class="log"></div>
+
+    <script>
+        // 디바이스 화소 비율 가져오기
+        const dpr = window.devicePixelRatio
+        // 캔버스의 논리적 크기
+        const w = 200
+        const h = 200
+
+        // 캔버스 요소 사이즈 조정
+        const canvas = document.querySelector('canvas')
+        canvas.width = w * dpr // 실제 크기는 배가 됨
+        canvas.height = h * dpr
+        canvas.style.width = w + 'px'
+        canvas.style.height = h + 'px'
+
+        const context = canvas.getContext('2d')
+        // 스케일 설정
+        context.scale(dpr, dpr) // 내부적으로 N 배의 사이즈
+        // 원을 그림
+        context.fillStyle = 'red'
+        context.arc(w / 2, h / 2 , 100, 0, 2 * Math.PI)
+        context.fill()
+
+        // 화면에 로그를 표시
+        document.querySelector('.log').innerHTML = 
+            `디바이스의 화소 비율은 ${dpr}입니다.`
+
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

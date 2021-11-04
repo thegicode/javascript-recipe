@@ -65,6 +65,12 @@
 - [카운트다운](https://thegicode.github.io/javascript-recipe/date-countdown.html)
 - [아날로그 시간 표시하기](https://thegicode.github.io/javascript-recipe/date-analog-clock.html)
 
+## 브라우저
+
+- [입력 프롬프트 표시하기](https://thegicode.github.io/javascript-recipe/browser/prompt.html)
+- [디바이스 화소 확인하기](https://thegicode.github.io/javascript-recipe/browser/device-pixel-ratio.html)
+- [캔버스에 디바이스 화소 맞추기](https://thegicode.github.io/javascript-recipe/browser/canvas-radio.html)
+
 ## 이벤트 처리
 
 - [이벤트 리스너 1회 실행하기](https://thegicode.github.io/javascript-recipe/event-listener-once.html)
