@@ -4,9 +4,9 @@
 
 ## 기초
 
-- [const](https://thegicode.github.io/javascript-recipe/variable-const.html)
-- [parameter](https://thegicode.github.io/javascript-recipe/function-parameter.html)
-- [for-skip](https://thegicode.github.io/javascript-recipe/for-skip.html)
+- [const](https://thegicode.github.io/javascript-recipe/basic/variable-const.html)
+- [parameter](https://thegicode.github.io/javascript-recipe/basic/function-parameter.html)
+- [for-skip](https://thegicode.github.io/javascript-recipe/basic/for-skip.html)
 
 ## Boolean, Number, String
 
