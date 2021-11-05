@@ -70,6 +70,7 @@
 - [입력 프롬프트 표시하기](https://thegicode.github.io/javascript-recipe/browser/prompt.html)
 - [디바이스 화소 확인하기](https://thegicode.github.io/javascript-recipe/browser/device-pixel-ratio.html)
 - [캔버스에 디바이스 화소 맞추기](https://thegicode.github.io/javascript-recipe/browser/canvas-radio.html)
+- [터치 디바이스 사용 확인하기](https://thegicode.github.io/javascript-recipe/browser/touch-device.html)
 
 ## 이벤트 처리
 
