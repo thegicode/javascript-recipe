@@ -74,6 +74,7 @@
 - [페이지 Reload](https://thegicode.github.io/javascript-recipe/browser/location-reload.html)
 - [페이지 이동하기](https://thegicode.github.io/javascript-recipe/browser/history.html)
 - [Hash 처리하기](https://thegicode.github.io/javascript-recipe/browser/location-hash.html)
+- [Hash 변경 확인하기](https://thegicode.github.io/javascript-recipe/browser/hashchange.html)
 
 ## 이벤트 처리
 
