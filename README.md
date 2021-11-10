@@ -75,6 +75,8 @@
 - [페이지 이동하기](https://thegicode.github.io/javascript-recipe/browser/history.html)
 - [Hash 처리하기](https://thegicode.github.io/javascript-recipe/browser/location-hash.html)
 - [Hash 변경 확인하기](https://thegicode.github.io/javascript-recipe/browser/hashchange.html)
+- [Hash 변경 확인하기](https://thegicode.github.io/javascript-recipe/browser/hashchange.html)
+- [스크롤 크기 확인, 설정](https://thegicode.github.io/javascript-recipe/browser/scroll.html)
 
 ## 이벤트 처리
 
