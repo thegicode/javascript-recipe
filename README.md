@@ -78,6 +78,7 @@
 - [Hash 변경 확인하기](https://thegicode.github.io/javascript-recipe/browser/hashchange.html)
 - [스크롤 크기 확인, 설정](https://thegicode.github.io/javascript-recipe/browser/scroll.html)
 - [타이틀 변경하기](https://thegicode.github.io/javascript-recipe/browser/title-change.html)
+- [포커스 확인하기](https://thegicode.github.io/javascript-recipe/browser/focus.html)
 
 ## 이벤트 처리
 
