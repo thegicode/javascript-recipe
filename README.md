@@ -80,6 +80,8 @@
 - [타이틀 변경하기](https://thegicode.github.io/javascript-recipe/browser/title-change.html)
 - [포커스 확인하기](https://thegicode.github.io/javascript-recipe/browser/focus.html)
 - [전체 화면 표시하기](https://thegicode.github.io/javascript-recipe/browser/full-screen.html)
+- [온라인/오프라인 대응하기](https://thegicode.github.io/javascript-recipe/browser/online.html)
+
 
 ## 이벤트 처리
 
