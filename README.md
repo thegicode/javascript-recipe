@@ -105,7 +105,7 @@
 - [기본 이벤트 작동 해지 설정하기](https://thegicode.github.io/javascript-recipe/event-prevent.html)
 - [드래그 앤 드롭 기능 사용](https://thegicode.github.io/javascript-recipe/drag-drop.html)
 
-## HTML 요서
+## HTML 요소
 - [자바스크립트 요소 다루기](https://thegicode.github.io/javascript-recipe/html/node.html)
 - [html, body 요소 읽어오기](https://thegicode.github.io/javascript-recipe/html/document.html)
 - [부모/자식/전/후 요소 읽어오기](https://thegicode.github.io/javascript-recipe/html/get-node.html)
