@@ -109,6 +109,7 @@
 - [자바스크립트 요소 다루기](https://thegicode.github.io/javascript-recipe/html/node.html)
 - [html, body 요소 읽어오기](https://thegicode.github.io/javascript-recipe/html/document.html)
 - [부모/자식/전/후 요소 읽어오기](https://thegicode.github.io/javascript-recipe/html/get-node.html)
+- [부모 요소에 자식 요소 추가하기](https://thegicode.github.io/javascript-recipe/html/append-child.html)
 
 
 ## 폼
