@@ -106,7 +106,8 @@
 - [드래그 앤 드롭 기능 사용](https://thegicode.github.io/javascript-recipe/drag-drop.html)
 
 ## HTML 요서
-- [자바스크립트 요소 다루기](https://thegicode.github.io/javascript-recipe/node.html)
+- [자바스크립트 요소 다루기](https://thegicode.github.io/javascript-recipe/html/node.html)
+- [<html>, <body> 요소 읽어오기](https://thegicode.github.io/javascript-recipe/html/document.html)
 
 
 ## 폼
