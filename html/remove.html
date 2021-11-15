@@ -70,10 +70,16 @@
                 <td>부모 요소에서 자식 요소 제거</td> 
                 <td>제거된 요소(Element)</td>
             </tr>
+            <tr>
+                <th>노드.remove()</th>
+                <td>요소 제거</td> 
+                <td>없음</td>
+            </tr>
         </tbody>
     </table>
 
-    <div class="ex1">
+    <section class="ex1">
+        <h3>예제1</h3>
         <style>
             #parent {
                 padding: 10px 15px;
@@ -82,7 +88,7 @@
             #child {
                 margin: 10px 0;
                 padding: 10px 15px;
-                background: rgba(20, 100, 24, 0.5);
+                background: rgba(101, 197, 197, 0.5);
             }
         </style>
 
@@ -99,7 +105,35 @@
             }, 3000)
         </script>   
 
-    </div>
+    </section>
+
+    <section class="ex2">
+        <h3>예제2</h3>
+        <style>
+            #parent2 {
+                padding: 10px 15px;
+                background: rgba(40, 173, 69, 0.1);
+            }
+            #child2 {
+                margin: 10px 0;
+                padding: 10px 15px;
+                background: rgba(93, 207, 140, 0.5);
+            }
+        </style>
+
+        <div id="parent2">
+            parent2
+            <div id="child2">child2</div>
+        </div>
+
+        <script>
+            setTimeout( () => {
+                const childElement2 = document.querySelector('#child2')
+                childElement2.remove()
+            }, 3000)
+        </script>   
+
+    </section>
 
     <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
 
