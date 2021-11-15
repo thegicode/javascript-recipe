@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>요소 앞/뒤에 다른 요소 추가하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <h1>요소 앞/뒤에 다른 요소 추가하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>노드1.before(노드2)</th>
+                <td>노드1 앞에 노드2 추가</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>노드1.after(노드2)</th>
+                <td>노드1 뒤에 노드2 추가</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>부모노드.hasChildNodes(자식노드)</th>
+                <td>부모 노드에 자식 노드 존재 여부 확인</td> 
+                <td>진릿값</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="ex1">
+        <style>
+            .wrapper{
+                width: 50%;
+                margin: 0 auto;
+            }
+            #myBox1, #myBox2 {
+                margin: 5px;
+                padding: 10px 15px;
+                color: rgba(255, 255, 255, 0.9);
+            }
+            #myBox1 {
+                background: rgba(28, 96, 124, 0.5);
+            }
+            #myBox2 {
+                background: rgba(26, 122, 58, 0.5);
+            }
+            #targetBox {
+                margin: 5px;
+                padding: 10px 15px;
+                background: rgba(133, 133, 133, 0.705);
+                color: rgba(255, 255, 255, 0.9);
+            }
+        </style>
+        <div class="wrapper">
+            <div id="myBox1">#MyBox1 요소</div>
+            <div id="myBox2">#MyBox2 요소</div>
+
+            <div class="container">
+                <div id="targetBox">#targetBox 요소</div>
+            </div>
+        </div>
+
+        <script>
+            const myBox1 = document.querySelector('#myBox1')
+            const myBox2 = document.querySelector('#myBox2')
+            const targetBox = document.querySelector('#targetBox')
+
+            setTimeout( () => {
+                targetBox.before(myBox1)
+            }, 4000)
+
+            setTimeout( () => {
+                targetBox.after(myBox2)
+            }, 4000)
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
