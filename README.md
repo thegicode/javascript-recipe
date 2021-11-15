@@ -112,6 +112,7 @@
 - [부모 요소에 자식 요소 추가하기](https://thegicode.github.io/javascript-recipe/html/append-child.html)
 - [요소 앞/뒤에 다른 요소 추가하기](https://thegicode.github.io/javascript-recipe/html/insert.html)
 - [HTML 코드 요소 추가하기](https://thegicode.github.io/javascript-recipe/html/insert-adjacent.html)
+- [요소를 동적으로 삭제하기](https://thegicode.github.io/javascript-recipe/html/remove-child.html)
 
 
 ## 폼
