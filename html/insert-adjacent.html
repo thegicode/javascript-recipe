@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>HTML 코드 요소 추가하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <h1>HTML 코드 요소 추가하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>부모요소.insertAdjacentHTML(삽입위치, 문자열)</th>
+                <td>문자열을 HTML로 삽입</td> 
+                <td>요소(Element)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>삽입위치</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>'beforebegin'</th>
+                <td>부모 요소 바로 앞</td> 
+            </tr>
+            <tr>
+                <th>'afterbegin'</th>
+                <td>부모 요소 제일 앞</td> 
+            </tr>
+            <tr>
+                <th>'beforeend'</th>
+                <td>부모 요소 제일 뒤</td> 
+            </tr>
+            <tr>
+                <th>'afterend'</th>
+                <td>부모 요소 바로 뒤</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>insertAdjacentHTML()은 첫 번째 이숫값의 위치에 두 번째 인수의 문자열을 HTML로 삽입하여, 삽입 위치의 기존 요소는 삭제하지 않는다.</p>
+    <p>insertAdjacentElement()도 유사한 기능을 가진다.</p>
+
+    <div class="ex1">
+        <style>
+            .root{
+                width: 50%;
+                margin: 0 auto;
+            }
+            .container {
+                padding: 10px 15px;
+                background: rgba(28, 96, 124, 0.5);
+                color: rgba(255, 255, 255, 0.9);
+            }
+            .new-box {
+                margin: 5px 0;
+                padding: 5px;
+                border: solid 1px #ddd;
+            }
+        </style>
+
+        <div class="root">
+            <!-- beforebegin -->
+            <div class="container">
+                <!-- afterbegin  -->
+                <div class="box">자식 요소1</div>
+                <div class="box">자식 요소2</div>
+                <!-- beforeend -->
+            </div>
+            <!-- afterend -->
+        </div>
+
+        <script>
+            const container = document.querySelector('.container')
+            const newBox = `<div class="new-box box">.new-box 요소</div>`
+
+            setTimeout( () => {
+                container.insertAdjacentHTML('afterbegin', newBox)
+                container.insertAdjacentHTML('afterend', newBox)
+            }, 3000)
+
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
