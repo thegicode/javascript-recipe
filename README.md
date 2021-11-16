@@ -115,7 +115,7 @@
 - [요소를 동적으로 삭제하기](https://thegicode.github.io/javascript-recipe/html/remove.html)
 - [요소 생성하기](https://thegicode.github.io/javascript-recipe/html/create-element.html)
   - 모달 윈도우 창 생성
-  
+- [요소 교체하기](https://thegicode.github.io/javascript-recipe/html/replace-child.html)
 
 
 ## 폼
