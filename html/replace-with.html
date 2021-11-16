@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <meta name="googlebot" content="noindex,nofollow">
-    <title>요소 교체하기</title>
+    <title>노드 교체하기</title>
     <style>
         body{
             margin: 1rem;
@@ -54,7 +54,7 @@
 </head>
 <body>
 
-    <h1>요소 교체하기</h1>
+    <h1>노드 교체하기</h1>
 
     <h2>Syntax</h2>
 
@@ -66,12 +66,14 @@
         </thead>
         <tbody>
             <tr>
-                <th>부모노드.replaceChil(새노드, 교체대상노드)</th>
-                <td>부모 노드의 자식 노드를 교체</td> 
-                <td>교체된 노드</td>
+                <th>변경대상노드.replaceWith(새노드)</th>
+                <td>대상 노드를 새 노드로 교체하기</td> 
+                <td>없음</td>
             </tr>
         </tbody>
     </table>
+
+    <p>교체된 노드가 DOM 트리에서 제거되는 것은 replaceChild()와 같지만, 반환되는 값이 없다는 점이 다르다.</p>
 
     <div class="ex1">
         <style>
@@ -101,7 +103,7 @@
                 const newBox = document.createElement('div')
                 newBox.textContent = '새로운 박스'
                 newBox.classList.add('new-box', 'box')
-                console.log(container.replaceChild(newBox, oldBox))
+                oldBox.replaceWith(newBox)
             }, 3000)
 
         </script>   
