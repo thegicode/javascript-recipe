@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>자신을 포함한 HTML 요소 다루기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <h1>자신을 포함한 HTML 요소 다루기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>요소.outerHTML()</th>
+                <td>요소 HTML</td> 
+                <td>문자열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>outerHTML 속성은 innerHTML과 달리 자신도 대상이 될 수 있으며, 자신의 HTML을 가져오거나 변경할 수 있다.</p>
+
+    <div class="ex1">
+
+        <h4>오늘의 날씨</h4>
+        <p id="weather-infomation">비<span class="temperature">(16도)</span></p>
+        
+        <script>
+            const weatherInformation =
+                document.querySelector('#weather-infomation')
+            
+            console.log(weatherInformation.outerHTML)
+            // <p id="weather-infomation">비<span class="temperature">(16도)</span></p>
+
+            weatherInformation.outerHTML = '<span>new html</span>'
+
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

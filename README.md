@@ -117,6 +117,8 @@
   - 모달 윈도우 창 생성
 - [요소 교체하기](https://thegicode.github.io/javascript-recipe/html/replace-child.html)
 - [노드 교체하기](https://thegicode.github.io/javascript-recipe/html/replace-with.html)
+- [자신을 포함한 HTML 요소 다루기](https://thegicode.github.io/javascript-recipe/html/outer-html.html)
+- [a 태그 _blank 부모창 조작 제한하기](https://thegicode.github.io/javascript-recipe/html/noopener.html)
 
 
 ## 폼
