@@ -120,6 +120,7 @@
 - [자신을 포함한 HTML 요소 다루기](https://thegicode.github.io/javascript-recipe/html/outer-html.html)
 - [a 태그 _blank 부모창 조작 제한하기](https://thegicode.github.io/javascript-recipe/html/noopener.html)
 - [요소 클래스 유/무효화하기](https://thegicode.github.io/javascript-recipe/html/classlist-toggle.html)
+- [스타일 확인하기](https://thegicode.github.io/javascript-recipe/html/get-computed-style.html)
 
 
 ## 폼

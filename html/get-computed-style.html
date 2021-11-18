@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <meta name="googlebot" content="noindex,nofollow">
-    <title>요소 클래스 유/무효화하기</title>
+    <title>스타일 확인하기</title>
     <style>
         body{
             margin: 1rem;
@@ -53,74 +53,41 @@
 </head>
 <body>
 
-    <h1>요소 클래스 유/무효화하기</h1>
+    <h1>스타일 확인하기</h1>
 
     <table>
         <thead>
-            <th>메소드</th>
+            <th>속성</th>
             <th>의미</th>
-            <th>반환</th>
+            <th>타입</th>
         </thead>
         <tbody>
             <tr>
-                <th>요소.classList.toggle(클래스)</th>
-                <td>클래스 전환</td>
-                <td>없음</td>
+                <th>getComputedStyle(요소).속성</th>
+                <td>스타일 값 가져오기</td>
+                <td>문자열</td>
             </tr>
         </tbody>
     </table>
 
     <div class="ex1">
         <style>
-            .ex1 {
-                display: flex;
+            #box {
+                width: 100px;
+                height: 100px;;
             }
-            section {
-                flex: 1;
-                min-height: 100px;
-                margin: 0 5px;
-                background: rgba(125, 100, 255, 0.05);
-            }
-            .button {
-                width: 100%;;
-            }
-            .content{
-                padding: 1rem;
-            }
-            .button + .content {
-                display: none;
-            }
-            .button + .content.show {
-                display: block;
+            .red {
+                background-color: #ff2bc2;
             }
         </style>
 
-        <section>
-            <button class="button">HTML</button>
-            <div class="content">
-                content1
-            </div>
-        </section>
-        <section>
-            <button class="button">CSS</button>
-            <div class="content">
-                content2
-            </div>
-        </section>
-        <section>
-            <button class="button">Javascript</button>
-            <div class="content">
-                content3
-            </div>
-        </section>
+        <div id="box" class="red"></div>
 
         <script>
-            document.querySelectorAll('.button')
-                .forEach( button => {
-                    button.addEventListener('click', () => {
-                        button.nextElementSibling.classList.toggle('show')
-                    })
-                })
+            const box = document.querySelector('#box')
+            console.log(getComputedStyle(box).width) // 100px
+            console.log(getComputedStyle(box).backgroundColor) // rgb(255, 43, 194)
+
         </script>
     </div>
 
