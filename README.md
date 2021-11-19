@@ -125,11 +125,12 @@
 
 ## 폼
 
-- [텍스트 박스 / 텍스트 영역 값 변경 확인](https://thegicode.github.io/javascript-recipe/form-event-input.html)
-- [체크박스 상태 변경 확인](https://thegicode.github.io/javascript-recipe/form-checkbox.html)
-- [파일 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/form-file.html)
-- [텍스트 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form-file-readastext.html)
-- [텍스트 데이터 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form-file-readasdataurl.html)
+- [텍스트 박스 / 텍스트 영역 값 변경 확인](https://thegicode.github.io/javascript-recipe/form/form-event-input.html)
+- [체크박스 상태 변경 확인](https://thegicode.github.io/javascript-recipe/form/form-checkbox.html)
+- [파일 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/form/form-file.html)
+- [텍스트 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form/form-file-readastext.html)
+- [텍스트 데이터 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form/form-file-readasdataurl.html)
+  - 데이터 형식으로 파일 읽어 오기
 - [라디오 버튼 상태 확인/변경](https://thegicode.github.io/javascript-recipe/form-radio.html)
 - [슬라이더 값 변경](https://thegicode.github.io/javascript-recipe/form-slider.html)
 - [색상 선택 정보 변경 확인](https://thegicode.github.io/javascript-recipe/form-color.html)
