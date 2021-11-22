@@ -135,3 +135,8 @@
 - [슬라이더 값 변경](https://thegicode.github.io/javascript-recipe/form/form-slider.html)
 - [색상 선택 정보 변경 확인](https://thegicode.github.io/javascript-recipe/form/form-color.html)
 - [폼 전송](https://thegicode.github.io/javascript-recipe/form/form-submit.html)
+
+
+## 애니메이션 효과
+- [Transition](https://thegicode.github.io/javascript-recipe/animation/transition.html)
+
