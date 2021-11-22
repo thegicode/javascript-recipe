@@ -131,7 +131,7 @@
 - [텍스트 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form/form-file-readastext.html)
 - [텍스트 데이터 형식으로 파일 읽어 오기](https://thegicode.github.io/javascript-recipe/form/form-file-readasdataurl.html)
   - 데이터 형식으로 파일 읽어 오기
-- [라디오 버튼 상태 확인/변경](https://thegicode.github.io/javascript-recipe/form-radio.html)
-- [슬라이더 값 변경](https://thegicode.github.io/javascript-recipe/form-slider.html)
-- [색상 선택 정보 변경 확인](https://thegicode.github.io/javascript-recipe/form-color.html)
-- [폼 전송](https://thegicode.github.io/javascript-recipe/form-submit.html)
+- [라디오 버튼 상태 확인/변경](https://thegicode.github.io/javascript-recipe/form/form-radio.html)
+- [슬라이더 값 변경](https://thegicode.github.io/javascript-recipe/form/form-slider.html)
+- [색상 선택 정보 변경 확인](https://thegicode.github.io/javascript-recipe/form/form-color.html)
+- [폼 전송](https://thegicode.github.io/javascript-recipe/form/form-submit.html)

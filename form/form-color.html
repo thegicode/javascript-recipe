@@ -77,28 +77,50 @@
 
     <section>
         <style>
+            p{
+                margin: 0;
+            }
+            .colorfickers {
+                display: flex;
+                align-items: flex-start;
+            }
+            .result {
+                flex: 1;
+            }
+            
+            .colorBox {
+                height: 20px;
+                border: solid 1px #ddd;
+
+            }
             .log{
-                min-height: 40px;
-                box-sizing: border-box;
                 padding: 10px;
-                background: rgba(0, 0, 255, 0.05) ;
+            }
+            #myColor {
+                flex: none;
+                margin-left: 10px;
             }
         </style>
 
-        <p class="log"></p>
-        <input type="color" id="myColor">
-
+        <div class="colorfickers">
+            <div class="result">
+                <p class="colorBox"></p>
+                <p class="log"></p>
+            </div>
+            <input type="color" id="myColor">
+        </div>
 
         <script>
 
             const element = document.querySelector('#myColor');
             const logEl = document.querySelector('.log');
+            const colorBox = document.querySelector('.colorBox');
 
             element.addEventListener('input', (event) => {
             // element.addEventListener('change', (event) => {
                 const value = event.target.value;
-                logEl.textContent = `${value} 색상이 선택되었습니다.`;
-                logEl.style.backgroundColor = value;
+                logEl.textContent = `${value}`;
+                colorBox.style.backgroundColor = value;
             });
 
         </script>
