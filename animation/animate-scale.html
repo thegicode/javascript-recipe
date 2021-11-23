@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <meta name="googlebot" content="noindex,nofollow">
-    <title>Animation</title>
+    <title>요소 크기 변경하기</title>
     <style>
         body{
             margin: 1rem;
@@ -54,30 +54,7 @@
 </head>
 <body>
 
-    <h1>Animation</h1>
-
-    <h2>Syntax</h2>
-
-    <table>
-        <thead>
-            <th>이벤트</th>
-            <th>의미</th>
-        </thead>
-        <tbody>
-            <tr>
-                <th>animationstart</th>
-                <td>애니메이션 시작 시 이벤트</td>
-            </tr>
-            <tr>
-                <th>animationiteration</th>
-                <td>애니메이션 반복 발생 시 이벤트</td>
-            </tr>
-            <tr>
-                <th>animationend</th>
-                <td>애니메이션 종료 시 이벤트</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>요소 크기 변경하기</h1>
 
     <h2>Examples</h2>
 
@@ -85,18 +62,20 @@
         <style>
             .centering {
                 position: relative;
-                padding: 2rem;
+                padding: 7rem 7rem 2rem;
                 background-color: #145a17;
+                text-align: center;
                 color: #fff;
             }
             .rect {
-                width: 100px;
-                height: 100px;
-                background-size: contain;
-                background-image: url('../media/loading.svg');
+                width: 50px;
+                height: 50px;
+                margin: 0 auto;
+                background-color: #fff;
+                transition: all 0.5s;
             }
-            .rect.state-show {
-                animation: infinite 1s rotate linear;
+            /* .rect.state-show {
+                transform: scale(4);
             }
             @keyframes rotate {
                 0% {
@@ -105,12 +84,9 @@
                 100% {
                     transform: rotate(360deg);
                 }
-            }
+            } */
             .ui {
-                margin-top: 1rem;
-            }
-            .log {
-                margin-top: 1rem;
+                margin-top: 7rem;
             }
         </style>
 
@@ -123,34 +99,41 @@
                     Animation 확인
                 </label>
             </div>
-            <div class="log">로그 표시 영역</div>
         </main>
 
         <script>
-            const element = document.querySelector('.rect')
-            const logEl = document.querySelector('.log')
-
-            document.querySelector('#checkbox')
-                .addEventListener('change', () => {
-                    if (element.classList.contains('state-show')) {
-                        element.classList.remove('state-show')
-                    } else {
-                        element.classList.add('state-show')
+            document.querySelector('#checkbox').addEventListener('change', (event) => {
+                const element = document.querySelector('.rect');
+                if (event.target.checked === true) {
+                    element.animate(
+                    {
+                        transform: [
+                        'scale(1)', // 시작 값
+                        'scale(5)' // 종료 값
+                        ]
+                    },
+                    {
+                        duration: 500, // 밀리초 지정
+                        fill: 'forwards', // 종료 시 속성을 지님
+                        easing: 'ease' // 가속도 종류
                     }
-                })
-                
-            element.addEventListener('animationstart', (event) => {
-                logEl.innerHTML = 'animationstart 발생 : ' + new Date().toLocaleTimeString();
-            })
-            element.addEventListener('animationiteration', (event) => {
-                logEl.innerHTML = 'animationiteration 발생 : ' + new Date().toLocaleTimeString();
-            })
-            element.addEventListener('animationend', (event) => {
-                // 반복 지정 시 발생하지 않음
-                logEl.innerHTML = 'animationend 발생 : ' + new Date().toLocaleTimeString();
+                    );
+                } else {
+                    element.animate(
+                    {
+                        transform: [
+                        'scale(5)', // 시작 값
+                        'scale(1)' // 종료 값
+                        ]
+                    },
+                    {
+                        duration: 500, // 밀리초 지정
+                        fill: 'forwards', // 종료 시 속성을 지님
+                        easing: 'ease' // 가속도 종류
+                    }
+                    );
+                }
             });
-
-            
         </script>
     </section>
 

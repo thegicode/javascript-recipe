@@ -141,4 +141,6 @@
 - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition.html)
 - [Animation](https://thegicode.github.io/javascript-recipe/animation/animation.html)
 - [Web Animation API 사용하기](https://thegicode.github.io/javascript-recipe/animation/animate.html)
+- [요소 크기 변경하기 / Transition](https://thegicode.github.io/javascript-recipe/animation/transition-scale.html)
+- [요소 크기 변경하기 / Animate](https://thegicode.github.io/javascript-recipe/animation/animate-scale.html)
 
