@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Transition</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Transition</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>이벤트</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>animationstart</th>
+                <td>애니메이션 시작 시 이벤트</td>
+            </tr>
+            <tr>
+                <th>animationiteration</th>
+                <td>애니메이션 반복 발생 시 이벤트</td>
+            </tr>
+            <tr>
+                <th>animationend</th>
+                <td>애니메이션 종료 시 이벤트</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+        <style>
+            .centering {
+                position: relative;
+                padding: 2rem;
+                background-color: #145a17;
+                color: #fff;
+            }
+            .rect {
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                background-image: url('../media/loading.svg');
+            }
+            .rect.state-show {
+                animation: infinite 1s rotate linear;
+            }
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            .ui {
+                margin-top: 1rem;
+            }
+            .log {
+                margin-top: 1rem;
+            }
+        </style>
+
+        <main class="centering">
+            <div class="rect"></div>
+
+            <div class="ui">
+                <label>
+                    <input type="checkbox" id="checkbox">
+                    Animation 확인
+                </label>
+            </div>
+            <div class="log">로그 표시 영역</div>
+        </main>
+
+        <script>
+            const element = document.querySelector('.rect')
+            const logEl = document.querySelector('.log')
+
+            document.querySelector('#checkbox')
+                .addEventListener('change', () => {
+                    if (element.classList.contains('state-show')) {
+                        element.classList.remove('state-show')
+                    } else {
+                        element.classList.add('state-show')
+                    }
+                })
+                
+            element.addEventListener('animationstart', (event) => {
+                logEl.innerHTML = 'animationstart 발생 : ' + new Date().toLocaleTimeString();
+            })
+            element.addEventListener('animationiteration', (event) => {
+                logEl.innerHTML = 'animationiteration 발생 : ' + new Date().toLocaleTimeString();
+            })
+            element.addEventListener('animationend', (event) => {
+                // 반복 지정 시 발생하지 않음
+                logEl.innerHTML = 'animationend 발생 : ' + new Date().toLocaleTimeString();
+            });
+
+            
+        </script>
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

@@ -139,4 +139,5 @@
 
 ## 애니메이션 효과
 - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition.html)
+- [Animation](https://thegicode.github.io/javascript-recipe/animation/animation.html)
 
