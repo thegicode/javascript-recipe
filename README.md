@@ -146,5 +146,7 @@
   - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-scale.html)
 - 요소 이동하기
   - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-move.html)
-  - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-scamovele.html)
-
+  - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-ㅡmove.html)
+- 요소 밝기 조절하기
+  - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-bright.html)
+  - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-bright.html)
