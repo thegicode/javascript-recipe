@@ -150,3 +150,6 @@
 - 요소 밝기 조절하기
   - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-bright.html)
   - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-bright.html)
+- 요소 채도 조절하기
+  - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-grayscale.html)
+  - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-grayscale.html)
