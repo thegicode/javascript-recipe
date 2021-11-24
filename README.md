@@ -144,4 +144,7 @@
 - 요소 크기 변경하기
   - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-scale.html)
   - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-scale.html)
+- 요소 이동하기
+  - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-move.html)
+  - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-scamovele.html)
 
