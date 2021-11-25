@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>reqeustAnimationFrame</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>reqeustAnimationFrame</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>reqeustAnimationFrame(함수)</th>
+                <td>시간 경과에 따른 실행 함수 등록</td>
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>reqeustAnimationFrame()은 화면에 각 프레임이 표시되기 저넹 함수를 불러내는 명령으로, 
+        이 메소드를 사용하면 시간 경과에 따른 지속적인 변화를 줄 수 있다.
+        일반적인 디스플레이는 초당 60프레이미 표시되며, 이는 한 프레임당 16밀리초의 시간이다.
+        만약 setTimeout()과 setInterval()을 사요해 16밀리초 이하의 시간을 설정한다면, 화면에는 표시되지 않으므로 불필요한 처리가 발생한다.
+        그러나 reqeustAnimationFrame()을 사용하면 웹에서 불필요한 처리 없이 프레임 표시에 맞춰 애니멩이션 효과를 줄 수 있다.
+    </p>
+
+    <p>reqeustAnimationFrame은 주로 WebGl과 HTML 캔버스에서 사용한다.</p>
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+       
+        <script>
+            tick()
+            let requestID()
+            function tick() {
+
+            }
+            cancelAnimationFrame(requestID)
+        </script>
+
+    </section>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

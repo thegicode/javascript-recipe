@@ -111,9 +111,10 @@
     const box1El = document.querySelector('#box1');
     const inner1El = box1El.querySelector('.inner');
 
-    box1El.addEventListener('mouseover', () => {
+    box1El.addEventListener('mouseover', e => {
+        e.stopPropagation()
         console.log('포인팅 디바이스가 .box 요소 위에 있음')
-    });
+    }, true);
     // box1El.addEventListener('mouseout', () => {
     //     console.log('포인팅 디바이스가 .box 요소를 벗어남')
     // });

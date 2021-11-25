@@ -153,3 +153,5 @@
 - 요소 채도 조절하기
   - [Transition](https://thegicode.github.io/javascript-recipe/animation/transition-grayscale.html)
   - [Animate](https://thegicode.github.io/javascript-recipe/animation/animate-grayscale.html)
+- [reqeustAnimationFrame](https://thegicode.github.io/javascript-recipe/animation/request-animation-frame.html)
+- [reqeustAnimationFrame 사용하기](https://thegicode.github.io/javascript-recipe/animation/request-animation-frame-2.html)

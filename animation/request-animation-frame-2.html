@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>reqeustAnimationFrame</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>reqeustAnimationFrame</h1>
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+
+        <style>
+            .followAnimation {
+                position: fixed;
+                top: 0;
+                left: 0;
+                will-change: transform;
+                font-size: 5rem;
+            }
+        </style>
+
+        <div class="followAnimation">code</div>
+       
+        <script>
+            // 커서를 따라다니는 요소 가져오기
+            const el = document.querySelector('.followAnimation')
+
+            // 마우스 좌표
+            let mouseX = 0
+            let mouseY = 0
+
+            // 커서를 따라다니는 요소의 좌표
+            let currentX = 0
+            let currentY = 0
+            // 마우스 이동 시
+            document.body.addEventListener('mousemove', event => {
+                mouseX = event.clientX
+                mouseY = event.clientY
+            })
+
+            tick()
+
+            function tick() {
+                // 애니메이션 프레임 지정
+                requestAnimationFrame(tick)
+
+                // 따라오는 요소 좌표에 마우스 좌표를 지연시켜 반영
+                currentX += (mouseX - currentX) * 0.1
+                currentY += (mouseY - currentY) * 0.1
+
+                // 지연된 좌표를 위치에 반영
+                el.style.transform = `translate(${currentX}px, ${currentY}px)`
+                
+            }
+        </script>
+
+    </section>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
