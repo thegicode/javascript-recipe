@@ -159,3 +159,4 @@
 
 ## 그림/사운드/영상
 - [이미지 로딩 후 작업하기](https://thegicode.github.io/javascript-recipe/animation/img-onload.html)
+- [이미지 로딩 지연시키기](https://thegicode.github.io/javascript-recipe/animation/img-delay.html)
