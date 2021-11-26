@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Base64 형식 이미지 표시하기</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Base64 형식 이미지 표시하기</h1>
+
+    <div>
+        <p>Base64의 시작 문자열은 'data:image/jpeg:base64' 또는 'data:image/png:base64'다. </p>
+        <p>Base64는 다음 상황에서 사용할 수 있다.</p>
+
+        <ul>
+            <li>자바스크립트 만으로 자료를 관리하고 싶을 때</li>
+            <li>데이터베이스에 문자열 형태로 이미지가 보관되어 있을 때</li>
+            <li>서버의 자료를 문자열 형태로 받았을 때</li>
+            <li>캔버스 요소를 문자열로 보관했을 때</li>
+        </ul>
+
+    </div>
+
+    </section>
+
+<script>
+
+    
+
+</script>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
