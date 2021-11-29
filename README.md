@@ -158,6 +158,10 @@
 
 
 ## 그림/사운드/영상
-- [이미지 로딩 후 작업하기](https://thegicode.github.io/javascript-recipe/animation/img-onload.html)
-- [이미지 로딩 지연시키기](https://thegicode.github.io/javascript-recipe/animation/img-delay.html)
-- [Base64 형식 이미지 표시하기](https://thegicode.github.io/javascript-recipe/animation/img-base64.html)
+- [이미지 로딩 후 작업하기](https://thegicode.github.io/javascript-recipe/media/img-onload.html)
+- [이미지 로딩 지연시키기](https://thegicode.github.io/javascript-recipe/media/img-delay.html)
+- [Base64 형식 이미지 표시하기](https://thegicode.github.io/javascript-recipe/media/img-base64.html)
+- [사운드 사용하기](https://thegicode.github.io/javascript-recipe/media/sound.html)
+- [스크립트로 사운드 제어하기](https://thegicode.github.io/javascript-recipe/media/sound-js.html)
+- [사운드 재생 조절하기](https://thegicode.github.io/javascript-recipe/media/sound-time.html)
+- [사운드 볼륨 조절하기](https://thegicode.github.io/javascript-recipe/media/sound-volume.html)
