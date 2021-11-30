@@ -167,3 +167,4 @@
 - [사운드 볼륨 조절하기](https://thegicode.github.io/javascript-recipe/media/sound-volume.html)
 - [Web Audio API 사용하기](https://thegicode.github.io/javascript-recipe/media/web-audio-api.html)
 - [영상 로딩하기](https://thegicode.github.io/javascript-recipe/media/video.html)
+- [카메라 기능 사용하기](https://thegicode.github.io/javascript-recipe/media/web-camera.html)
