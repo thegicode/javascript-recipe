@@ -165,3 +165,4 @@
 - [스크립트로 사운드 제어하기](https://thegicode.github.io/javascript-recipe/media/sound-js.html)
 - [사운드 재생 조절하기](https://thegicode.github.io/javascript-recipe/media/sound-time.html)
 - [사운드 볼륨 조절하기](https://thegicode.github.io/javascript-recipe/media/sound-volume.html)
+- [Web Audio API 사용하기](https://thegicode.github.io/javascript-recipe/media/web-audio-api.html)

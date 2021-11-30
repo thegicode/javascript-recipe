@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Web Audio API 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+            height: 1000px;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Web Audio API 사용하기</h1>
+
+    <h2>Examples</h2>
+
+    <section class="ex1">
+        <style>
+            
+        </style>
+
+        <div class="container">
+            <button onclick="loadAnPlay()">재생</button>
+            <button onclick="stop()">정지</button>
+        </div>
+        
+        <script>
+            loadAnPlay()
+
+            let source
+
+            // 재생 처리
+            async function loadAnPlay() {
+                const context = new AudioContext()
+
+                // 사운드 파일 로딩
+                const data = await fetch('/assets/music.mp3')
+                // ArrayBuffer로 사용
+                const buffer = await data.arrayBuffer()
+                // 오디오 데이터로 변환
+                const decodedBuffer = await context.decodeAudioData(buffer)
+
+                // 소스작성
+                source = context.createBufferSource()
+                // 소스에 오디오 데이터 할당
+                source.buffer = decodedBuffer
+                // 스피커 연결
+                source.connect(context.destination)
+                // 재생 시작
+                source.start(0)
+            }
+
+            // 정지 기능
+            function stop() {
+                source.stop()
+            }
+            
+        </script>
+    </section>
+
+<p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
