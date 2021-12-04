@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>SVG 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SVG 사용하기</h1>
+
+    <p>SVG : Scalable Vector Grphics</p>
+
+    <p>SVG는 2차원 그래픽을 XML로 기술하며, 벡터이므로 해상도에 구애되지 않는 장점을 가졌다. 또한, 다채로운 그래픽을 표현하는 기능도 있다.</p>
+
+    <div class="ex1">
+        <style>
+            svg {
+                border: solid 1px #ddd;
+            }
+            .viewbox {
+            }
+            .viewbox img {
+                width: 400px;
+            }
+        </style>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" >
+            <!-- (도형 코드를 삽입) -->
+        </svg>
+
+        <p>viewBox 속성은 SVG의 표시 영역을 정의한다. X 좌표, Y 좌표, 폭, 높이라는 네 가지 값으로 직사각형의 영역을 정의힌다.</p>
+
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 540 540" width="250" height="250">
+            <path 
+                fill-opacity="0"
+                stroke="#999"
+                d="M25, 349, 
+                    c57, -84, 238, -176, 228, -166
+                    c111, 11, 120, 200, 200, 81"></path>
+        </svg>
+
+        <div class="viewbox">
+            <img src="../assets/viewbox.jpeg" alt="viewbox 설명">
+            <p>
+                SVG의 표시 크기를 width, height 속성으로 설정한다. <br>
+                viweBox 속성은 SVG 내부 그래픽 좌표를 설정한다. 
+                SVG 이미지의 크기를 결정할 때는 width, hegit 속성과 viewBox 속성의 관계도 주의해야 한다.
+            </p>
+        </div>
+        
+
+        <script>
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
