@@ -172,3 +172,5 @@
 ## SVG/캔버스
 - [SVG 사용하기](https://thegicode.github.io/javascript-recipe/svg/svg.html)
 - [SVG 요소를 동적으로 추가하기](https://thegicode.github.io/javascript-recipe/svg/svg-create.html)
+- [SVG 요소 애니메이션 효과 주기](https://thegicode.github.io/javascript-recipe/svg/svg-animation.html)
+- [SVG 그래픽 다운로드하기](https://thegicode.github.io/javascript-recipe/svg/svg-download.html)

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>SVG 요소 애니메이션 효과 주기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SVG 요소 애니메이션 효과 주기</h1>
+
+    <div class="ex1">
+        <style>
+            .ex1 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+
+        <svg viewBox="0 0 200 200" width="200" height="200">
+            <circle id="myCircle" cx="100" cy="100" r="95" fill="#bbdefb" />
+        </svg>
+        <div id="log"></div>
+        <script>
+            const myCircle = document.querySelector('#myCircle')
+            const logEl = document.querySelector('#log')
+            let time = 0
+
+            animate()
+
+            function animate() {
+                // 시간 변화
+                time += 0.1
+                // 색상 변화
+                const color = `hsl(0, 100%, ${time}%`
+                myCircle.style.fill = color
+                
+                logEl.textContent = `${Math.round(time)}`
+
+
+                // 목표값까지 반복
+                if (time < 50) {
+                    requestAnimationFrame(animate)
+                }
+            }
+                
+            
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
