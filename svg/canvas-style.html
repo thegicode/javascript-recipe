@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>캔버스 요소 색칠하기/선 그리기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>캔버스 요소 색칠하기/선 그리기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>context.fillStyle</th>
+                <td>색상과 스타일</td> 
+                <td>문자열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>context.strokeRect(x, y, 폭, 높이)</th>
+                <td>직사각형 영역 경계 그리기</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>context.fillRect(x, y, 폭, 높이)</th>
+                <td>직사각형 영역 색칠하기</td> 
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        색칠되는 부분은 도형을 둘러싼 영역이다. fillStyle 속성으로 색상을 지정하고 fillRect()로 색이 들어간 직사각형을 생성한다. <br>
+        fillRect()를 실행하기 전 fillStyle 속성의 설정이 먼저 필요하므로 순서에 주의하자.
+    </p>
+
+    <div class="ex1">
+        <style>
+            canvas {
+                border: solid 1px rgba(0, 0, 0, 0.3)
+            }
+        </style>
+
+        <canvas
+            id="my-canvas"
+            width="200"
+            height="200" >
+        </canvas>
+
+        <canvas
+            id="my-canvas2"
+            width="200"
+            height="200" >
+        </canvas>
+
+        <script>
+            const canvas = document.querySelector('#my-canvas')
+            // 콘텍스트 가져오기
+            const context = canvas.getContext('2d')
+            // 색상 지정
+            context.fillStyle = 'green'
+            
+            // 정사각형 생성
+            context.fillRect(0, 0, 100, 100)
+
+
+
+            const canvas2 = document.querySelector('#my-canvas2')
+            // 콘텍스트 가져오기
+            const context2 = canvas2.getContext('2d')
+            // 선의 굵기 지정
+            context2.lineWidth = 3
+            // 선의 색상 지정
+            context2.strokeStyle = 'red'
+            // 정사각형 생성
+            context2.strokeRect(0, 0, 100, 100)
+            
+            
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

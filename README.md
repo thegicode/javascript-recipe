@@ -156,7 +156,6 @@
 - [reqeustAnimationFrame](https://thegicode.github.io/javascript-recipe/animation/request-animation-frame.html)
 - [reqeustAnimationFrame 사용하기](https://thegicode.github.io/javascript-recipe/animation/request-animation-frame-2.html)
 
-
 ## 그림/사운드/영상
 - [이미지 로딩 후 작업하기](https://thegicode.github.io/javascript-recipe/media/img-onload.html)
 - [이미지 로딩 지연시키기](https://thegicode.github.io/javascript-recipe/media/img-delay.html)
@@ -174,3 +173,6 @@
 - [SVG 요소를 동적으로 추가하기](https://thegicode.github.io/javascript-recipe/svg/svg-create.html)
 - [SVG 요소 애니메이션 효과 주기](https://thegicode.github.io/javascript-recipe/svg/svg-animation.html)
 - [SVG 그래픽 다운로드하기](https://thegicode.github.io/javascript-recipe/svg/svg-download.html)
+- [캔버스 사용하기](https://thegicode.github.io/javascript-recipe/svg/canvas.html)
+- [캔버스 요소 색칠하기/선 그리기](https://thegicode.github.io/javascript-recipe/svg/canvas-style.html)
+- [캔버스에 이미지 붙여넣기](https://thegicode.github.io/javascript-recipe/svg/canvas-image.html)
