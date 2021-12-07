@@ -176,3 +176,7 @@
 - [캔버스 사용하기](https://thegicode.github.io/javascript-recipe/svg/canvas.html)
 - [캔버스 요소 색칠하기/선 그리기](https://thegicode.github.io/javascript-recipe/svg/canvas-style.html)
 - [캔버스에 이미지 붙여넣기](https://thegicode.github.io/javascript-recipe/svg/canvas-image.html)
+- [캔버스 화소 정보 다루기](https://thegicode.github.io/javascript-recipe/svg/canvas-imagedata.html)
+- [이미지의 RGBA 값 확인하기](https://thegicode.github.io/javascript-recipe/svg/canvas-rgba.html)
+- [캔버스의 이미지 가공하기](https://thegicode.github.io/javascript-recipe/svg/canvas-putimage.html)
+- [DataURL로 캔버스에 이미지 표시하기](https://thegicode.github.io/javascript-recipe/svg/canvas-dataurl.html)

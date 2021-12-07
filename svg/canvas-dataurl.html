@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>DataURL로 캔버스에 이미지 표시하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DataURL로 캔버스에 이미지 표시하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>canvas.toDataURL()</th>
+                <td>DataURL 형식 출력</td> 
+                <td>문자열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>toDataURL()을 사용해 캔버스 요소로 작업한 그래픽을 DataURL 형식으로 출력할 수 있다. <br>
+        DataURL 형식은 문자열이므로 유연한 작업이 가능하다. <br>
+        예를 들어 변환한 데이터를 데이터베이스에 문자열 타입으로 보관할 수 있다.
+    </p>
+
+    <div class="ex1">
+        <style>
+            canvas {
+                border: solid 1px rgba(0, 0, 0, 0.3)
+            }
+        </style>
+
+            <canvas id="my-canvas"
+                width="100"
+                height="100">
+            </canvas>
+            <br>
+            <img id="my-img">
+
+        <script>
+           // 캔버스 요소 참조
+            const canvas = document.querySelector('#my-canvas');
+            // 컨텍스트 가져오기
+            const context = canvas.getContext('2d');
+            context.fillStyle = 'red';
+            context.fillRect(0, 0, 100, 100);
+            context.fillStyle = 'green';
+            context.fillRect(25, 25, 50, 50);
+
+            // Base64 문자열 가져오기
+            const data = canvas.toDataURL();
+            console.log(data);
+
+            // img 요소 대입
+            const img = document.querySelector('#my-img');
+            img.src = data;
+            
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
