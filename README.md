@@ -180,3 +180,9 @@
 - [이미지의 RGBA 값 확인하기](https://thegicode.github.io/javascript-recipe/svg/canvas-rgba.html)
 - [캔버스의 이미지 가공하기](https://thegicode.github.io/javascript-recipe/svg/canvas-putimage.html)
 - [DataURL로 캔버스에 이미지 표시하기](https://thegicode.github.io/javascript-recipe/svg/canvas-dataurl.html)
+- [PNG/JPEG DataURL로 불러오기](https://thegicode.github.io/javascript-recipe/svg/canvas-dataURL2.html)
+- [캔버스 그래픽 다운로드하기](https://thegicode.github.io/javascript-recipe/svg/canvas-download.html)
+
+## 타이핑 제어
+- [지정 시간 후 작업 실행하기](https://thegicode.github.io/javascript-recipe/time/settimeout.html)
+- [시간 주기 작업하기](https://thegicode.github.io/javascript-recipe/time/setinterval.html)

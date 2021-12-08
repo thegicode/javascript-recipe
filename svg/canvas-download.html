@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>캔버스 그래픽 다운로드하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>캔버스 그래픽 다운로드하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new Blob(배열, 옵션)</th>
+                <td>Blob 객체 생성</td> 
+                <td>Blob 객체</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p> a 요소를 사용해 캔버스 요소에서 작업한 그래픽을 다운로드 할 수 있다. <br>
+        이미지 데이터는 toDataURL()을 사용해 Base64 문자열로 가져오며, 바이너리이므로 Blob 객체로 변환한다.
+    </p>
+
+    <div class="ex1">
+        <style>
+            canvas {
+                border: solid 1px rgba(0, 0, 0, 0.3)
+            }
+        </style>
+
+        <main class="container">
+            <figure>
+                <canvas id="canvas-original"
+                        width="150"
+                        height="150">
+                </canvas>
+                <figcaption>▲ 기존 이미지</figcaption>
+            </figure>
+            <figure>
+                <canvas id="canvas-effected"
+                        width="150"
+                        height="150">
+                </canvas>
+                <figcaption>▲ 변환 이미지</figcaption>
+              </figure>
+            <button id="btnDownload">다운로드</button>
+        </main>
+
+        <script>
+            // 캔버스 요소 참조
+            const canvas1 = document.querySelector('#canvas-original');
+            // 컨텍스트 가져오기
+            const context1 = canvas1.getContext('2d');
+            // Image 인스턴스 생성
+            const img = new Image();
+            // 이미지 로딩 후 처리
+            img.onload = () => {
+                // 컨텍스트로 캔버스에 그리기
+                context1.drawImage(img, 0, 0);
+
+                // 화소 정보 가져오기
+                const imageData = context1.getImageData(0, 0, 150, 150);
+                const data = imageData.data;
+
+                const monoImageData = new ImageData(150, 150);
+
+                const monoArr = monoImageData.data;
+                for (let i = 0; i < data.length / 4; i += 1) {
+                    // 화소 정보 가져오기
+                    const r = data[i * 4 + 0];
+                    const g = data[i * 4 + 1];
+                    const b = data[i * 4 + 2];
+                    const a = data[i * 4 + 3];
+
+                    // 평균값 구하기(연산 간략화를 위함)
+                    const color = (r + g + b) / 3;
+
+                    // 새로운 배열에 색 지정新しい配列に色を指定
+                    monoArr[i * 4 + 0] = color;
+                    monoArr[i * 4 + 1] = color;
+                    monoArr[i * 4 + 2] = color;
+                    monoArr[i * 4 + 3] = a;
+                }
+
+                // 캔버스 요소 참조
+                const canvas2 = document.querySelector('#canvas-effected');
+                // 컨텍스트 가져오기
+                const context2 = canvas2.getContext('2d');
+                // 컨텍스트에 새로운 화소 정보 할당
+                context2.putImageData(monoImageData, 0, 0);
+            };
+            // 이미지 로딩 시작
+            img.src = '../assets/sample.jpg';
+
+            const btnDownload = document.querySelector('#btnDownload');
+            btnDownload.addEventListener('click', () => {
+                // 캔버스 요소 참조
+                const canvas2 = document.querySelector('#canvas-effected');
+
+                // 파일 형식과 파일명 지정
+                const mimeType = 'image/png';
+                const fileName = 'download.png';
+
+                // Base64 문자열 가져오기
+                const base64 = canvas2.toDataURL(mimeType);
+
+                // Base64 문자열을 Uint8Array로 변환
+                const bin = atob(base64.replace(/^.*,/, ''));
+                const buffer = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) {
+                    buffer[i] = bin.charCodeAt(i);
+                }
+
+                // Blob 생성
+                const blob = new Blob([buffer.buffer], {
+                    type: mimeType
+                });
+
+                // 이미지 다운로드
+                if (window.navigator.msSaveBlob) {
+                    // for IE
+                    window.navigator.msSaveBlob(blob, fileName);
+                } else if (window.URL && window.URL.createObjectURL) {
+                    // for Firefox, Chrome, Safari
+                    const a = document.createElement('a');
+                    a.download = fileName;
+                    a.href = window.URL.createObjectURL(blob);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                } else {
+                    // for Other
+                    window.open(base64, '_blank');
+                }
+            });
+            
+        </script>   
+
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
