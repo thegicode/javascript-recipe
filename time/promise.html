@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>비동기와 Promise 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>비동기와 Promise 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new Promise(함수)</th>
+                <td>Promise 생성</td> 
+                <td>Promise 인스턴스</td>
+            </tr>
+            <tr>
+                <th>Promise인스턴스.then(함수)</th>
+                <td>성공 시 콜백 함수 호출</td> 
+                <td>Promise</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>비동기 처리 작업 기능을 하는 Promise 객체를 사용하면 작업이 용이해질 뿐만 아리나 코드의 가독성도 좋아진다. <br>
+        fetch()를 시작으로 브라우저의 표준 기능에도 Promise 사용이 증가하고 있으며, await나 async와 같은 기능도 기본적으로 알아두면 좋다. <br>
+        Promise 생성자의 인수는 비동기 처리 작업을 하는 함수를 지정하며, 함수 내부에서 비동기 처리 완료 메서드인 resolve()를 호출한다. <br>
+        Promise 인스턴스의 then()응 사용해 resolve() 실행 후 작업을 처리한다. 
+    </p>
+
+    <div class="ex1">
+        <style>
+        </style>
+        
+        <script>
+            const promise = new Promise((resolve) => {
+                setTimeout( () => {
+                    // resolve() 호출 시 Promise 처리 완료
+                    resolve()
+                }, 1000)
+            })
+            promise.then( () => {
+                console.log('다음 작업') // 1초 후 실행
+            })
+
+    
+            // resolve()의 인수에는 임의의 값 지정이 가능하다. 
+            const promise2 = new Promise((resolve) => {
+                setTimeout( () => {
+                    // resolve() 호출 시 Promise 처리 완료
+                    resolve('orange')
+                }, 2000)
+            })
+            promise2.then( (val) => {
+                console.log(val) 
+            })
+        </script>   
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

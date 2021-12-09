@@ -186,3 +186,5 @@
 ## 타이핑 제어
 - [지정 시간 후 작업 실행하기](https://thegicode.github.io/javascript-recipe/time/settimeout.html)
 - [시간 주기 작업하기](https://thegicode.github.io/javascript-recipe/time/setinterval.html)
+- [시간 주기 작업 해제하기](https://thegicode.github.io/javascript-recipe/time/clearinterval.html)
+- [비동기와 Promise 사용하기](https://thegicode.github.io/javascript-recipe/time/promise.html)
