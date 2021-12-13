@@ -188,3 +188,6 @@
 - [시간 주기 작업하기](https://thegicode.github.io/javascript-recipe/time/setinterval.html)
 - [시간 주기 작업 해제하기](https://thegicode.github.io/javascript-recipe/time/clearinterval.html)
 - [비동기와 Promise 사용하기](https://thegicode.github.io/javascript-recipe/time/promise.html)
+- [Promise 병렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-all.html)
+- [Promise 직렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-await.html)
+- [Promise 동적 직렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-await2.html)
