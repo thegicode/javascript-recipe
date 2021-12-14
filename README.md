@@ -191,3 +191,7 @@
 - [Promise 병렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-all.html)
 - [Promise 직렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-await.html)
 - [Promise 동적 직렬 처리하기](https://thegicode.github.io/javascript-recipe/time/promise-await2.html)
+
+## 데이터 송수신
+- [JSON 변환에 들여쓰기 적용하기](https://thegicode.github.io/javascript-recipe/data/json-stringify.html)
+- [JSON 변환 기능 커스터마이징](https://thegicode.github.io/javascript-recipe/data/json-stringify-replacer.html)
