@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>fetch()로 텍스트 데이터 읽어오기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>fetch()로 텍스트 데이터 읽어오기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>fetch(URL)</th>
+                <td>URL로 데이터 가져오기</td> 
+                <td>Promise</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        fetch()를 사용하면 간단하게 외부 파일을 가져올 수 있다. <br>
+        프로그램에서는 데이터 다운로드의 시간 예측이 불가능하므로 Promise의 then()을 사용해 비동기로 처리한다. <br>
+        fetch()로 데이터를 가져온 뒤 then()을 호출한다. 
+    </p>
+
+    <div class="ex1">
+        <style>
+            .ex1 h3 {
+                margin-top: 2rem;
+            }
+        </style>
+        <h3>Promise를 사용하는 방법</h3>
+        <div id="log1"></div>
+        <script>
+            fetch('sample.txt') // 1
+                .then((data) => data.text()) // 2
+                .then((text) => {
+                    console.log(text)
+                    document.querySelector('#log1').innerHTML = text
+                }) // 3
+        </script>   
+
+        <h3>await과 async를 사용하는 방법</h3>
+        <div id="log2"></div>
+        <script>
+            async function load() {
+                const data = await fetch('sample.txt')  // 1
+                const text = await data.text()  // 2
+                console.log(text) // 3
+                document.querySelector('#log2').innerHTML = text
+            }
+            load()
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

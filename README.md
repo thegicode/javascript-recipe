@@ -195,3 +195,5 @@
 ## 데이터 송수신
 - [JSON 변환에 들여쓰기 적용하기](https://thegicode.github.io/javascript-recipe/data/json-stringify.html)
 - [JSON 변환 기능 커스터마이징](https://thegicode.github.io/javascript-recipe/data/json-stringify-replacer.html)
+- [fetch()로 텍스트 데이터 읽어오기](https://thegicode.github.io/javascript-recipe/data/fetch.html)
+- [fetch()로 JSON 데이터 읽어오기](https://thegicode.github.io/javascript-recipe/data/fetch-json.html)

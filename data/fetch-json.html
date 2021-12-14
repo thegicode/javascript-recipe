@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>fetch()로 JSON 데이터 읽어오기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>fetch()로 JSON 데이터 읽어오기</h1>
+
+    <p>
+        JSON을 다루기 위해서는 데이터를 가져오는 fetch()와 JSON 포맷으로 해석하는 json()의 2단계 작업이 필요하며, 이렇게 하면 JSON 객체를 다룰 수 있다.
+    </p>
+
+    <div class="ex1">
+        <style>
+            .ex1 h3 {
+                margin-top: 2rem;
+            }
+        </style>
+        <h3>Promise를 사용하는 방법</h3>
+        <pre id="log1"></pre>
+
+        <script>
+            fetch('sample.json')
+                .then((data) => data.json())
+                .then((obj) => {
+                    console.log(obj) // {name: 'A학교', classes: Array(2)}
+                    document.querySelector('#log1').innerHTML = JSON.stringify(obj, null, '    ')
+                })
+        </script>   
+
+        <h3>await과 async를 사용하는 방법</h3>
+        <pre id="log2"></pre>
+        <script>
+            async function load() {
+                // 파일 읽어오기
+                const data = await fetch('sample.json')
+                // JSON으로 해석
+                const obj = await data.json()
+                console.log(obj) // {name: 'A학교', classes: Array(2)}
+                // 텍스트 출력
+                document.querySelector('#log2').innerHTML = JSON.stringify(obj, null, '    ')
+            }
+            load()
+           
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
