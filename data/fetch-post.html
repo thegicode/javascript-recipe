@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>fetch()로 데이터 보내기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>fetch()로 데이터 보내기</h1>
+
+    <div>
+        <p>웹 서버에 데이터를 전달할 때로 fetch()를 사용하며, 뎅터 전달 방법은 GET과 POST가 있다.</p>
+        <p>
+            웹에서 '?key=value'와 같은 문자가 포함된 URL을 본 적이 있다면 이것이 URL에 인수를 전달하는 GET 방식이다. <br>
+            GET 방식은 URL로 페이지의 결과가 결정되는 방식에 적합하며, SEO Search Engine Optimization(검색 엔진 최적화)와 궁합이 좋다.
+        </p>
+        <p>
+            하지만 GET 방식은 URL에 전달 데이터가 노출되므로 보안 문제가 생길 수 있다. <br>
+            URL은 액세스 분석 등 다양한 용도를 위해 로그에 기록으로 남을 가능성이 있으며, 
+            이는 개인 보안의 취약점으로 인식된다. 그러므로 개인 정보 관련 데이터는 GET 방식을 사용하지 않는다. <br>
+            폼의 내용과 개인 정보 관련 데이터는 POST 방식을 사용한다. <br>
+            POST 방식은 URL에 인수 데이터 정보를 표시하지 않으며, <br> 
+            HTTPS 프로토콜을 사용하면 다른 사람이 데이터를 확인하는 것이 불가능하므로 데이터를 안전하게 전송할 수 있다.
+        </p>
+    </div>
+
+    <h2>JSON 포맷으로 전달하는 방법(application/json 방식)</h2>
+    <pre>
+        const obj = {hello: 'world'}
+        const data = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        }
+        fetch('./new', data)
+            .then((res) => res.text())
+            .then(console.log)
+    </pre>
+
+    <h2>폼 방식으로 전달하는 방법(multipart/form-data 방식)</h2>
+    <p>자바스크립트 FormData 객체를 사용하면 키와 값을 조합하여 전송 데이터를 정의할 수 있다. <br>
+        서버는 multipart/form-data 포맷으로 전달받으며, 주로 이미지와 첨부 파일 등을 서버에 보관할 때 사용하는 포맷이다. <br>
+        Content-Type 값은 자동으로 설정되므로 코드에서 지정할 필요가 없다.
+    </p>
+    <pre>
+        const body = new fromData()
+        body.set('hello', 'world')
+        const data = {
+            method: 'POST',
+            body: body
+        }
+        fetch('./new', data)
+            .then((res) => res.text())
+            .then(console.log)
+    </pre>
+
+    <h2>폼 방식으로 전달하는 방법(application/x-www-form-urlencoded 방식)</h2>
+    <p>이 포맷은 'key1=val1&key2=val2..'의 형태와 같이 키와 값을 하나로 묶어 서버에 전송한다. <br>
+        한글 등 멀티 바이트 문자는 사용할 수 없으므로 URL 인코딩을 통해 전송된다. <br>
+        URLSearchParams의 인스턴스를 생성하고 set()로 키와 값을 설정한다.
+    </p>
+    <pre>
+        const params = new URLSearchParams()
+        params.set('hello', 'world')
+        const data = {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            },
+            body: params
+        }
+        fetch('./new', data)
+            .then((res) => res.text())
+            .then(console.log)
+    </pre>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
