@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>XMLHttpRequest로 작업 상황 확인하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>XMLHttpRequest로 작업 상황 확인하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>event.loaded</th>
+                <td>현재 로딩 진행 상태</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>event.total</th>
+                <td>전체 데이터 크기</td>
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>XMLHttpRequest 객체 인스턴스의 불러오기 진행 상황은 progress 이벤트로 감시하고, <br>
+        이벤트 핸들러에서 total 속성(전체 데이터 크기)과 loaded 속성(현재 불러오기 진행 상황)을 사용해 확인할 수 있다. <br>
+        loaded와 total을 조합하면 진행 상황을 % 단위로 계산할 수도 있다.
+    </p>
+
+    <div class="ex1">
+        <style>
+            .progress {
+                display: block;
+                overflow: hidden;
+                position: relative;
+                height: 20px;
+                margin: 20px auto;
+                border-radius: 10px;
+                background: gray;
+            }
+            .progress-bar {
+                /* content: ''; */
+                /* display: block; */
+                position: absolute;
+                height: 100%;
+                background: orangered;
+            }
+        </style>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div id="log"></div>
+        <script>
+            // XHR 생성
+            const req = new XMLHttpRequest()
+            // 데이터 종류 설정
+            req.responseType = 'blob'
+
+            req.addEventListener('progress', (event) => {
+                // 진행 상황 계산(0-1)
+                const rate = event.loaded / event.total
+                // 진행 바 폭 변경
+                const element = document.querySelector('.progress-bar')
+                element.style.width = `${rate * 100}%`
+            })
+
+            // 불러오기 완료 후 이벤트
+            req.addEventListener('load', (event) => {
+                // response 가져오기
+                const data = event.target.response
+                // 이미지 데이터 변환
+                const source = URL.createObjectURL(data)
+
+                // 이미지 생성
+                const image = new Image()
+                image.src = source
+                // 텍스트 출력
+                document.querySelector('#log').appendChild(image)
+            })
+            // 파일 지정
+            req.open('GET', '../assets/sample.jpg')
+            // 가져오기 시작
+            req.send()
+
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

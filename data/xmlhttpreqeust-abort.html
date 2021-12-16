@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>XMLHttpRequest로 작업 취소하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>XMLHttpRequest로 작업 취소하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>abort()</th>
+                <td>데이터 전송 작업 취소</td> 
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>abort()를 사용하면 XMLHttpRequest 객체 인스턴스가 진행 중인 데이터 송수신 작업을 중단할 수 있으며, <br>
+        이때 발생하는 이벤트는 load가 아닌 abort 이벤트다. <br>
+    </p>
+
+    <div class="ex1">
+        <style>
+        </style>
+        <button>불러오기</button>
+        <pre id="log">(데이터를 표시하는 영역)</pre>
+        <script>
+            const btn = document.querySelector('button')
+            btn.addEventListener('click', () => {
+                const req = new XMLHttpRequest()
+                req.responseType = 'blob'
+                req.addEventListener('abort',  (event) => {
+                    document.querySelector('#log').textContent
+                        = '불러오기 작업을 실패하였습니다.'
+                })
+                req.addEventListener('load', (event) => {
+                    const data = event.target.response;
+                    const source = URL.createObjectURL(data);
+
+                    const image = new Image();
+                    image.src = source;
+                    document.querySelector('#log').appendChild(image);  
+                })
+                req.open('GET', '../assets/sample.jpg')
+                req.send()
+
+                if (Math.random() > 0.5) {
+                    req.abort()
+                }
+            })
+
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

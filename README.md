@@ -199,3 +199,6 @@
 - [fetch()로 JSON 데이터 읽어오기](https://thegicode.github.io/javascript-recipe/data/fetch-json.html)
 - [fetch()로 바이너리 데이터 읽어오기](https://thegicode.github.io/javascript-recipe/data/fetch-binary.html)
 - [fetch()로 데이터 보내기](https://thegicode.github.io/javascript-recipe/data/fetch-post.html)
+- [XMLHttpRequest로 데이터 읽어 오기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest.html)
+- [XMLHttpRequest로 작업 상황 확인하기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest-loaded.html)
+- [XMLHttpRequest로 작업 취소하기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest-abort.html)

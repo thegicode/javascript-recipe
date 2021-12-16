@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>XMLHttpRequest로 데이터 읽어 오기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>XMLHttpRequest로 데이터 읽어 오기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new XMLHttpRequest()</th>
+                <td>인스턴스 생성</td> 
+                <td>XMLHttpRequest</td>
+            </tr>
+            <tr>
+                <th>open(메소드, url)</th>
+                <td>리퀘스트 초기화</td>
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>send()</th>
+                <td>리퀘스트 전송</td>
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>XMLHttpRequest 객체의 불러오기 완료 확인은 load 이벤트를 사용하며, <br>
+        이벤트 핸들러에서 responseText 속성을 사용해 불러온 문자열 데이터를 참조할 수 있다.
+    </p>
+
+    <div class="ex1">
+        <div id="log"></div>
+        <script>
+            // XHR 생성
+            const req = new XMLHttpRequest()
+            // 불러오기 완료 후 이벤트
+            req.addEventListener('load', (event) => {
+                // response 가져오기
+                const text = event.target.responseText
+
+                // 텍스트 출력
+                document.querySelector('#log').innerHTML = text
+            })
+            // 파일 지정
+            req.open('GET', './sample.txt')
+            // 가져오기 시작
+            req.send()
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
