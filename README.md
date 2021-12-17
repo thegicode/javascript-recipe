@@ -204,3 +204,4 @@
 - [XMLHttpRequest로 작업 취소하기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest-abort.html)
 - [백그라운드에서 스크립트 작업하기](https://thegicode.github.io/javascript-recipe/data/worker.html)
 - [백그라운드에서 작업 실행하기](https://thegicode.github.io/javascript-recipe/data/serviceworker.html)
+- [푸시 알림](https://thegicode.github.io/javascript-recipe/data/notification.html)

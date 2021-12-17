@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>푸시 알림</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>푸시 알림</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Notification.permission</th>
+                <td>브라우저의 알림 허가 여부</td> 
+                <td>문자열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Notification.requestPermisstion()</th>
+                <td>알림 허가 요청하기</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>new Notification(알림타이틀)</th>
+                <td>알림 표시</td> 
+                <td>Notification</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>웹 사이트에서 자바스크립트의 Notification API를 사용해 유저에게 푸시 알림을 표시할 수 있으며, <br>
+        OS 고유의 알림창을 사용한다. <br>
+        브라우저 활성화 상태가 아니어도 푸시 알림이 도착하면 유저에게 알림을 띄우고 선택을 요구하는 기능으로 사용할 수 있다.
+    </p>
+
+    <div class="ex1">
+        <style>
+            
+        </style>
+
+        <button>Clcik</button>
+
+        <script>
+            const btn = document.querySelector('button')
+            btn.addEventListener('click', notify)
+
+            // 알림 기능 확인
+            function notify() {
+                switch (Notification.permission) { 
+                    case 'default': // 기본 상태
+                        Notification.requestPermission() 
+                        break
+                    case 'granted': // 알림 허가
+                        new Notification('안녕하세요.')
+                        break
+                    case 'denied': // 알림 거부
+                        alert('알림이 거부되었습니다.')
+                        break
+                }
+            }
+        </script>
+    </div>
+
+    <p>브라우저의 비활성화 상태에서도 푸시 알림을 사용하고 싶을 때 <br>
+        해당 기능은 브라우저에서 페이지를 열고 있을 때만 작동한다. <br>
+        브라우저의 페이지를 열고 있지 않을 때도 푸시 알림 기능을 사용하고 싶다면 서비스 워커를 사용한다. 
+     </p>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
