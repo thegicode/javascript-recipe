@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>백그라운드에서 스크립트 작업하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>백그라운드에서 스크립트 작업하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new Worker(파일주소)</th>
+                <td>웹 워커 인스턴스 생성</td> 
+                <td>인스턴스</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>자바스크립트는 메인 스레드로 동작하며, 부하가 큰 작업을 실행하면 처리 작업 중에는 조작이 불가능하다. <br>
+        자바스크립트 처리가 UI를 담당하는 메인 스레드를 멈추게 하기 때문이다. <br>
+        Web Worker를 사용하면 이 문제를 해결할 수 있다. <br>
+        Web Worker는 메인 스레드와 자바스크립트와 분리되어 실행되며, 부하가 큰 계산 작업 등을 처리할 때 유리하다. <br>
+        Web Worker는 메인 스크립트와 스레드가 다르므로 DOM 조작이 불가능하며, 페이지가 열려 있을 때만 실행된다는 점에 주의하자.
+    </p>
+
+    <div class="ex1">
+        <style>
+            .result {
+                width: 50%;
+                padding: 1rem;
+                background-color: rgba(0, 100, 200, 0.05);
+            }
+        </style>
+
+        <div class="wrap">
+            <input type="number" name="1" id="numA">
+            <input type="number" name="2" id="numB">
+            <p class="result"></p>
+        </div>
+        <button>계산하기</button>
+
+        <script>
+            // 참조 가져오기
+            const numA = document.querySelector('#numA')
+            const numB = document.querySelector('#numB')
+            const result = document.querySelector('.result')
+            const btn = document.querySelector('button')
+
+            // woker 생성
+            const worker = new Worker('./worker.js')
+
+            // 버튼 클릭 시
+            btn.addEventListener('click', () => {
+                worker.postMessage([Number(numA.value), Number(numB.value)])
+                console.log('1. [메인스크립트] worker로 데이터 전송')
+            })
+
+            // worker 데이터를 가져올 때
+            worker.onmessage = function(e) {
+                // 결과물 화면에 표시
+                result.textContent = e.data
+                console.log('4. [메인스크립트] worker에서 메시지 가져오기')
+            }
+            
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

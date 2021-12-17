@@ -202,3 +202,4 @@
 - [XMLHttpRequest로 데이터 읽어 오기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest.html)
 - [XMLHttpRequest로 작업 상황 확인하기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest-loaded.html)
 - [XMLHttpRequest로 작업 취소하기](https://thegicode.github.io/javascript-recipe/data/xmlhttprequest-abort.html)
+- [백그라운드에서 스크립트 작업하기](https://thegicode.github.io/javascript-recipe/data/worker.html)
