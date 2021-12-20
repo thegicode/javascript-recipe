@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>localStroage 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>localStroage 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>localStorage.setItem(키, data)</th>
+                <td>localStorage에 저장</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>localStorage.getItem(키)</th>
+                <td>localStorage에서 불러오기</td> 
+                <td>문자열</td>
+            </tr>
+            <tr>
+                <th>localStorage.removeItem(키)</th>
+                <td>localStorage 해당 키 삭제</td> 
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>localStorage.clear()</th>
+                <td>localStorage 데이터 삭제</td> 
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>localStorage는 브라우저에 데이터를 간단하게 저장할 수 있다.  <br>
+        window 객체에 localStorag 객체가 있으므로 위치에 상관없이 사용할 수 있으며, localStorage에 저장된 데이터는 기간 제한이 없다.
+    </p>
+
+    <h3>프라이빗 브라우징, 시크릿 모드</h3>
+    <p>브라우저에 이력을 남기지 않는 프라이빗 브라우징 기능이 있다. <br>
+        프라이빗 브라우징 모드에서는 브라우저에 따라 localStorage의 작동 방식이 다르므로 주의하자. <br>
+        창을 닫기 전까지 localStorage가 유지되는 브라우저도 있지만, 사파리처럼 localStorage에 데이터가 저장되지 않는 브라우저도 있다. <br>
+        구글 크롬 시크릿 모드의 경우 localStorage에 데이터가 저장되지만, 브라우저를 다시 열면 데이터가 삭제되고 없다.
+    </p>
+
+    <h3>seeionStorage</h3>
+    <p>
+        localStorage와 비슷한 기능으로 sessionStorage가 있으며, 사용법은 같다. <br>
+        localStorage가 저장 기한의 제한이 없지만, sessionStorage는 세션이 종료(브라우저 닫기)되면 데이터도 함께 삭제된다.
+    </p>
+
+
+    <div class="ex1">
+        <style>
+            
+        </style>
+
+        <script>
+            const data = 'abcde'
+            localStorage.setItem('myKey', data)
+            console.log(localStorage.getItem('myKey'))
+            // localStorage.removeItem('myKey')
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

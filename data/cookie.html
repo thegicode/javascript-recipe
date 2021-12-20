@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>쿠키로 로컬 데이터 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{
+            margin-top: 0;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 5rem;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>쿠키로 로컬 데이터 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>document.cookie</th>
+                <td>쿠키 참조</td> 
+                <td>문자열</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>쿠키는 예전부터 웹 데이터를 저장하거나 세션 관리에 사용되어 왔다. <br>
+        localStorage는 다양한 데이터 저장이 가능한 것이 특징이라면, <br>
+        쿠키는 1차원의 문자열만 저장할 수 있다. <br>
+        쿠키의 값은 클라이언트 쪽에서도 사용하지만, 서버도 불러오기와 값 변경 등 데이터를 공유할 수 있다. <br>
+        속성은 1차원 데이터만 저장이 가능하므로 복잡한 데이터의 저장은 주의해야 한다. <br>
+        쿠키의 값은 '='나 ';' 등 특수 기호를 사용하며, 한글은 '%82%A0'과 같은 형식으로 인코딩되므로 쿠키 값을 불러오기 위해서는 디코딩이 필요하다.
+    </p>
+
+    <div class="ex1">
+        <style>
+        </style>
+        <section class="cookie">
+            <h2>쿠키</h2>
+            <button class="btnSave">저장하기</button>
+            <button class="btnRead">불러오기</button>
+        </section>
+        <script>
+            const btnRead = document.querySelector('.btnRead')
+            const btnSave = document.querySelector('.btnSave')
+            btnSave.addEventListener('click', () => {
+                document.cookie = 'id=1'
+                document.cookie = 'age=3'
+                document.cookie = `name=${encodeURIComponent('사자')}`
+            })
+            btnRead.addEventListener('click', () => {
+                alert(document.cookie)
+            })
+        </script>
+    </div>
+
+    <h3>쿠키의 특징</h3>
+    <ul>
+        <li>브라우저가 자동으로 웹 서버에 전송</li>
+        <li>유효 기간 설정 가능</li>
+        <li>미삭제 시 지속 보관</li>
+        <li>도메인 단위로 존재. 같은 도메인이라도 http, https는 다른 영역</li>
+    </ul>
+
+
+    <h3>쿠키 데이터 읽어오기</h3>
+    <div class="ex2">
+        <style>
+        </style>
+        <section class="cookie">
+            <button class="btnRead2">불러오기</button>
+            <div id="log"></div>
+        </section>
+        <script>
+            const btnRead2 = document.querySelector('.btnRead2')
+            btnRead2.addEventListener('click', () => {
+                const obj = convertCookieObject(document.cookie)
+                console.log(obj)
+                document.querySelector('#log').innerHTML = 
+                    JSON.stringify(obj, null, '    ')
+            })
+
+            /**
+             * 쿠키를 객체로 변환
+             * @param cookies 쿠키 문자열
+             * @return 연관 배열
+             */
+            function convertCookieObject(cookies) {
+                const cookieItems = cookies.split(';')
+
+                const obj = {}
+                cookieItems.forEach(item => {
+                    const elem = item.split('=')
+                    const key = elem[0].trim()
+                    const val = decodeURIComponent(elem[1])
+                    obj[key] = val
+                })
+                return obj
+            }
+        </script>
+    </div>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
