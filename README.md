@@ -211,3 +211,4 @@
 ## 스마트폰 센서
 - [위치 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/smart/geolocation.html)
 - [자이로Gyro 센서와 가속도 센서 사용하기](https://thegicode.github.io/javascript-recipe/smart/gyro.html)
+- [진동 모터 사용하기](https://thegicode.github.io/javascript-recipe/smart/vibrate.html)
