@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>위치 정보 읽어 오기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>위치 정보 읽어 오기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>navigator.geolocation.getCurrentPosition</th>
+                <td>위치 정보 가져오기</td> 
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>position.coords.latitude</th>
+                <td>위도</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>position.coords.longitude</th>
+                <td>경도</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>position.coords.accuracy</th>
+                <td>위도, 경도의 오차</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>GPS는 지도 앱과 SNS 앱 등에서 위치 정보를 확인할 때 사용하는 센서다. <br>
+        Geolocation API로 액세서할 수 있으며, navigator.geolocation.getCurrentPosition()을 사용해 위치 정보를 가져올 수 있다. <br>
+        poistion.coords.accuracy 속성은 위도와 경도의 오차를 나타내는 것으로 가져온 위도, 경도의 데이터와 실제 위치의 오차 범위를 m 단위로 나타낸다.
+    </p>
+
+    <div class="ex1">
+        <style>
+        </style>
+
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        
+        <script>
+            // 현재 위치 가져오기
+            navigator.geolocation.getCurrentPosition(geoSuccess, geoError)
+
+            // 가져오기 성공
+            function geoSuccess(position) {
+                // 위도
+                const lat = position.coords.latitude
+                // 경도
+                const lng = position.coords.longitude
+                // 위도 경도 오차(m)
+                const accuracy = Math.floor(position.coords.accuracy)
+
+                setMap(lat, lng)
+            }
+
+            // 가져오기 실패(거부)
+            function geoError() {
+                alert('Geolocation Error')
+            }
+
+            function setMap(lat, lng) {
+                // 위도, 경도 설정
+                const latlng = new google.maps.LatLng(lat, lng)
+
+                // 표시 추가
+                const marker = new google.maps.Marker({
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    position: latlng
+                })
+            }
+        </script>
+    </div>
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

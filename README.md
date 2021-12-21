@@ -207,3 +207,7 @@
 - [푸시 알림](https://thegicode.github.io/javascript-recipe/data/notification.html)
 - [localStroage 사용하기](https://thegicode.github.io/javascript-recipe/data/localstorage.html)
 - [쿠키로 로컬 데이터 사용하기](https://thegicode.github.io/javascript-recipe/data/cookie.html)
+
+## 스마트폰 센서
+- [위치 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/smart/geolocation.html)
+- [자이로Gyro 센서와 가속도 센서 사용하기](https://thegicode.github.io/javascript-recipe/smart/gyro.html)

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>자이로Gyro 센서와 가속도 센서 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>자이로Gyro 센서와 가속도 센서 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>event.beta</th>
+                <td>x 축 기울기</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>event.gamma</th>
+                <td>y 축 기울기</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>event.alpha</th>
+                <td>z 축 기울기</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>event.acceleration.x</th>
+                <td>x 축 가속도</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>event.acceleration.y</th>
+                <td>y 축 가속도</td> 
+                <td>숫자</td>
+            </tr>
+            <tr>
+                <th>event.acceleration.z</th>
+                <td>z 축 가속도</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>자이로 센서(기울기)</h4>
+    <p>자이로 센서는 기울기(회전)을 검출하는 센서다. <br>
+    스마트폰을 가로 혹은 세로로 움직이면 센서가 인지하여 디스플레이를 가로 화면 혹은 세로 화면으로 전환하는 작업 등에 사용한다. <br>
+    액세스는 DeviceOrientation 이벤트로 가능하며, X, Y, Z 축의 값을 가져오기 위해서는 window 객체의 deviceorientation 이벤트를 감시한다.
+    </p>
+
+    <script>
+        // DeviceOrientation 이벤트
+        window.addEventListener('deviceorientation', deviceorientationHandler)
+
+        // 자이로 센서 값 변화
+        function deviceorientationHandler(event) {
+            const beta = event.beta
+            const gamma = event.gamma
+            const alpha = event.alpha
+            console.log(event, beta, gamma, alpha)
+        }
+    </script>
+
+    <h4>자이로 센서 방향</h4>
+    <p>사파리에서는 event.WebkitCompassHeading을 사용해 방향 확인<br>
+        다른 스마트폰에서는 해당 기능을 사용할 수 없다. 
+        자이로 센서의 기울기 값을 이용해 방향을 산출하는 방식을 사용
+        https://w3c.github.io/deviceorientation/
+    </p>
+
+    <script>
+        function getCompassHeading(alpha, beta, gamma) {
+            const degtorad = Math.PI / 180
+
+            const _x = beta ? beta * degtorad : 0
+            const _y = gamma ? gamma * degtorad  : 0
+            const _z = alpha ? alpha * degtorad : 0
+
+            const cY = Math.cos(_y)
+            const cZ = Math.cos(_z)
+            const sX = Math.cos(_x)
+            const sY = Math.cos(_y)
+            const sZ = Math.cos(_z)
+
+            const Vx = -cZ * sY - sZ * sX * cY
+            const Vy = -sZ * sY + cZ * sX * cY
+
+            let compassHeading = Math.atan(Vx / Vy)
+
+            if (Vy < 0) {
+                compassHeading += Math.PI
+            } else if (Vx < 0) {
+                compassHeading += 2 * Math.PI
+            }
+
+            return compassHeading * (180 / Math.PI)
+        }
+    </script>
+
+    <h3>가속도 센서(관성)</h3>
+    <p>스마트폰이 떨어져서 물체에 부딪히는 것 등을 인식하는 데 사용하며, 액세스는 DeviceMotion 이벤트를 사용</p>
+    <script>
+        window.addEventListener('devicemotion', devicemotionHandler)
+
+        function devicemotionHandler(event) {
+            const x = event.acceleration.x
+            const y = event.acceleration.y
+            const z = event.acceleration.z
+        }
+    </script>
+
+
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
