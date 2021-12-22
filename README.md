@@ -216,3 +216,4 @@
 ## 디버그
 - [정보/에러/경고 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-log.html)
 - [객체 구조 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-dir.html)
+- [에러 객체 생성하기](https://thegicode.github.io/javascript-recipe/debug/error.html)
