@@ -212,3 +212,7 @@
 - [위치 정보 읽어 오기](https://thegicode.github.io/javascript-recipe/smart/geolocation.html)
 - [자이로Gyro 센서와 가속도 센서 사용하기](https://thegicode.github.io/javascript-recipe/smart/gyro.html)
 - [진동 모터 사용하기](https://thegicode.github.io/javascript-recipe/smart/vibrate.html)
+
+## 디버그
+- [정보/에러/경고 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-log.html)
+- [객체 구조 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-dir.html)
