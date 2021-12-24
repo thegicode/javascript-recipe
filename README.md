@@ -217,3 +217,7 @@
 - [정보/에러/경고 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-log.html)
 - [객체 구조 출력하기](https://thegicode.github.io/javascript-recipe/debug/console-dir.html)
 - [에러 객체 생성하기](https://thegicode.github.io/javascript-recipe/debug/error.html)
+- [에러 발생시키기](https://thegicode.github.io/javascript-recipe/debug/error-throw.html)
+- [에러 발생 확인하기](https://thegicode.github.io/javascript-recipe/debug/error-catch.html)
+- [에러 발생 시 실행 코드 설정하기](https://thegicode.github.io/javascript-recipe/debug/error-finally.html)
+- [에러 종류 파악하기](https://thegicode.github.io/javascript-recipe/debug/error-range.html)

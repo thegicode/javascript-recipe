@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>에러 발생 시 실행 코드 설정하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>에러 발생 시 실행 코드 설정하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>종류</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>try {} catch (error){} finally {}</th>
+                <td>에러 처리</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        finally {}는 try {}의 에러 발생 여부와 상관없이 실행된다. 
+    </p>
+
+    <script>
+        /** 50% 확률로 에러를 발생시켜 try와 catch 처리 */
+        function generateError() {
+            try {
+                // 50%의 확률로 에러 발생
+                if (Math.random() > 0.5) {
+                    throw new Error()
+                } else {
+                    console.log('에러 없음')
+                }
+            } catch (error) {
+                // 에러 발생 시 처리
+                console.log('에러 발생')
+            } finally {
+                // 에러 발생 여부 상관없이 실행
+                console.log('에러 처리가 완료되었습니다.')
+                console.log('-------------')
+            }
+        }
+
+        // 3초마다 generator() 실행
+        setInterval(generateError, 3000)
+    </script>
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
