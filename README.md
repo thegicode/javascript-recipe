@@ -224,3 +224,4 @@
 
 ## 함수와 클래스
 - [함수 내부 변수와 상수의 범위 알기](https://thegicode.github.io/javascript-recipe/function/scope.html)
+- [클래스 정의하기](https://thegicode.github.io/javascript-recipe/function/class.html)
