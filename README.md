@@ -221,3 +221,6 @@
 - [에러 발생 확인하기](https://thegicode.github.io/javascript-recipe/debug/error-catch.html)
 - [에러 발생 시 실행 코드 설정하기](https://thegicode.github.io/javascript-recipe/debug/error-finally.html)
 - [에러 종류 파악하기](https://thegicode.github.io/javascript-recipe/debug/error-range.html)
+
+## 함수와 클래스
+- [함수 내부 변수와 상수의 범위 알기](https://thegicode.github.io/javascript-recipe/function/scope.html)

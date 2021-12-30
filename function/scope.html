@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>함수 내부 변수와 상수의 범위 알기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>함수 내부 변수와 상수의 범위 알기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{}</th>
+                <td>블록 스코프</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p> let과 const로 선언된 변수와 상수는 {}로 감싸진 범위의 블록 내에서만 사용할 수 있다. <br>
+        변수와 상수가 유효한 범위를 Scope라고 하며, {}로 감싸진 유효 범위를 Block Scope라고 한다.
+    </p>
+
+    <script>
+        {
+            const a = 20
+            console.log(a)
+
+            {
+                console.log(a)
+            }
+        }
+        {
+            {
+                const a = 20
+            }
+            console.log(a)
+            // Uncaught ReferenceError: a is not defined
+            // 스코프를 벗어나므로 에러가 발생
+        }
+    </script>
+
+    <p>모든 스코프의 가장 상위는 전역 스코프가 된다. 전역 스코프에서 선언한 상수와 변수는 모든 블록에서 사용할 수 있다.</p>
+    <script>
+        const a = 20
+        {
+            console.log(a)
+        }
+    </script>
+
+    <p>블록은 함수, if문, for문 등 여러 곳에서 사용된다. </p>
+    <script>
+        function myFunction() {
+            const myValue = '사자'
+            console.log(myValue)
+
+            function myChildFunction() {
+                console.log(myValue)    // 사자
+            }
+            myChildFunction()
+        }
+        myFunction()    // 사자
+
+        // 스코프를 벗어나므로 에러가 발생
+        console.log(myValue)    
+        // Uncaught ReferenceError: myValue is not defined
+        
+    </script>
+
+    <p>if문</p>
+    <script>
+        if (true) {
+            const myValue2 = '사자'
+        }
+        // myValue2는 스코프를 벗어나므로 에러
+        console.log(myValue2)
+    </script>
+
+    <h3>블록 스코프 범위를 벗어나는 var 선언</h3>
+    <p>변수는 let이 아닌 var를 사용해서도 선언할 수 있다. <br> 
+        var는 예전부터 사용된 변수 선언방법이지만, 블록 스코프를 사용한 범위의 한정은 불가능한다.</p>
+    <script>
+        {
+            var myValue = 20
+        }
+        console.log(myValue)    // 20, 에러가 발생하지 않음
+
+        if (true) {
+            if (true) {
+                var mayValue2 = '사자'
+            }
+        }
+        console.log(mayValue2)  // 사자, 에러가 발생하지 않음
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
