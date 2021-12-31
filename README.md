@@ -230,3 +230,4 @@
 - [클래스에서 메소드 사용하기](https://thegicode.github.io/javascript-recipe/function/class-method.html)
 - [인스턴스 생성없이 정적 메소드 사용하기](https://thegicode.github.io/javascript-recipe/function/class-static.html)
 - [클래스 계승하기](https://thegicode.github.io/javascript-recipe/function/class-extends.html)
+- [클래스 데이터의 setter/getter 사용하기](https://thegicode.github.io/javascript-recipe/function/class-set.html)
