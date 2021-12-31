@@ -228,3 +228,4 @@
 - [클래스 사용하기](https://thegicode.github.io/javascript-recipe/function/class-instance.html)
 - [클래스에서 변수 사용하기](https://thegicode.github.io/javascript-recipe/function/class-member.html)
 - [클래스에서 메소드 사용하기](https://thegicode.github.io/javascript-recipe/function/class-method.html)
+- [인스턴스 생성없이 정적 메소드 사용하기](https://thegicode.github.io/javascript-recipe/function/class-static.html)
