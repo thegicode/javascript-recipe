@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>this 기능 사용하기(화살표함수)</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>this 기능 사용하기(화살표함수)</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>() => {}</th>
+                <td>화살표 함수 정의</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>자바스크립트에서 this는 실행하는 영역에 따라 참조하는 곳이 변한다. <br>
+        화살표 함수를 사용하면 실행 영역에 상관없이 this의 참조가 변하지 않으므로 코드의 가독성이 좋아진다. 
+    </p>
+
+    <button class="button">Click</button>
+    <p class="clickedCountText"></p>
+
+    <script>
+        class LikeCounter {
+            constructor() {
+                this.clickedCount = 0
+
+                const button = document.querySelector('.button')
+                const clickedCountText = document.querySelector('.clickedCountText')
+
+                button.addEventListener('click', function() {
+                    this.clickedCount += 1
+                    clickedCountText.textContent = this.clickedCount
+                })
+            }
+        }
+        new LikeCounter()
+    </script>
+    <p>여기서 문제는 이벤트 리스터 내부의 this가 이벤트 타깃을 참조하므로 this.clickedCount는 LikeCounter의 멤버 변수를 참조하지 않는다는 점이다.</p>
+
+    <button class="button2">Click</button>
+    <p class="clickedCountText2"></p>
+    <script>
+        class LikeCounterArrow {
+            constructor() {
+                this.clickedCount = 0
+
+                const button = document.querySelector('.button2')
+                const clickedCountText = document.querySelector('.clickedCountText2')
+
+                button.addEventListener('click', () => {
+                    this.clickedCount += 1
+                    clickedCountText.textContent = this.clickedCount
+                })
+            }
+        }
+        new LikeCounterArrow()
+    </script>
+    <p>코드의 문맥과 상관없이 this의 참조를 파악할 수 있으므로 화살표 함수를 사용하면 가독성이 좋아진다.</p>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
