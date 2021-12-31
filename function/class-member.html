@@ -76,7 +76,7 @@
     </p>
 
     <script>
-        class myClass {
+        class MyClass {
             constructor() {
                 this.myField1 = 100
                 this.myField2 = '사자'
@@ -86,7 +86,7 @@
 
     <p>멤버 변수는 초깃값 대입이 가능하며, 대입하지 않으면 undefined로 정의된다.</p>
     <script>
-        class myClassA {
+        class MyClassA {
             constructor() {
                 this.myField = '사자'
             }
@@ -95,14 +95,14 @@
 
     <p>인스턴스(new 클래스명())의 멤버 변수 접근은 '인스턴스.멤버변수명'을 사용하며, 객체의 속성 접근 방법과 같다.</p>
     <script>
-        class myClassB {
+        class MyClassB {
             constructor() {
                 this.myField1 = 100
                 this.myField2 = '사자'
             }
         }
         // 인스턴스화
-        const myInstance = new myClassB()
+        const myInstance = new MyClassB()
 
         console.log(myInstance.myField1)
         console.log(myInstance.myField2)
@@ -111,27 +111,27 @@
     <p>멤버 변수의 초깃값으로 사용하기 위해 constructor()에 인수를 전달한다.</p>
     <script>
         // 두 개의 파라미터를 가지는 클래스
-        class myClassC  {
+        class MyClassC  {
             constructor(myField1, myField2) {
                 this.myField1 = myField1
                 this.myField2 = myField2
             }
         }
 
-        const myInstanceC = new myClassC('사자', '여우')
+        const myInstanceC = new MyClassC('사자', '여우')
         console.log(myInstanceC.myField1)
         console.log(myInstanceC.myField2)
     </script>
 
     <p>constructor()도 함수이므로 파라미터의 초깃값을 지정할 수 있다.</p>
     <script>
-        class myClassD {
+        class MyClassD {
             constructor(myField1, myField2 = '사과') {
                 this.myField1 = myField1
                 this.myField2 = myField2
             }
         }
-        const myInstanceD = new myClassD('사자')
+        const myInstanceD = new MyClassD('사자')
         console.log(myInstanceD.myField2)   // 사과
     </script>
 
