@@ -236,3 +236,5 @@
 ## 자바스크립트 심화
 - [자바스크립트 읽기 타이밍 최적화하기](https://thegicode.github.io/javascript-recipe/deep/load.html)
 - [처리 파일 분할하기[ES 모듈]](https://thegicode.github.io/javascript-recipe/deep/es.html)
+- [모듈 내보내기](https://thegicode.github.io/javascript-recipe/deep/export.html)
+- [모듈 가져오기](https://thegicode.github.io/javascript-recipe/deep/import.html)

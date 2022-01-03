@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>모듈 가져오기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>모듈 가져오기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>import { 모듈명 } from './파일명.js'</th>
+                <td>모듈 가져오기</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ex">
+        <style>
+            .ex {
+                padding: 1rem;
+            }
+            h4 {
+            }
+            code {
+                display: block;
+                margin-bottom: 4rem;
+                padding: 1rem;
+                border-radius: 5px;
+                border: solid 1px #ddd;
+                font-size: 1rem;
+                background-color: rgba(0, 0, 0, 0.05);
+                color: rgba(10, 50, 255, 0.8);
+            }
+        </style>
+
+        <h4>자바스크립트 파일에서 모듈 불러오기</h4>
+        <code>
+            import { 모듈명 } from '자바스크립트파일.js'
+        </code>
+
+        <h4>자바스크립트 파일에서 모듈 여러 개 불러오기</h4>
+        <code>
+            import { 모듈명1, 모듈명2 } from '자바스크립트파일.js'
+        </code>
+
+        <h4>모듈명1을 모듈명2의 이름으로 불러오기</h4>
+        <code>
+            import { 모듈명1 as 모듈명2 } from '자바스크립트파일.js'
+        </code>
+
+        <h4>자바스크립트 파일에서 export default로 정의한 모듈을 불러오기</h4>
+        <code>
+            import 모듈명 from '자바스크립트파일.js'
+        </code>
+
+        <h4>자바스크립트 파일에서 모든 모듈을 불러와 모듈명 지정</h4>
+        <code>
+            import * as 모듈명 from '자바스크립트파일.js'
+        </code>
+
+        <h4>모듈 불러오기만 실행</h4>
+        <code>
+            import '자바스크립트파일.js'
+        </code>
+    </div>
+
+    <script type="module">
+        import * as samples from './modules.js'
+        console.log('samples', samples)
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
