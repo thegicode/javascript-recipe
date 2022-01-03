@@ -234,3 +234,4 @@
 - [this 기능 사용하기(화살표함수)](https://thegicode.github.io/javascript-recipe/function/arrow.html)
 
 ## 자바스크립트 심화
+- [자바스크립트 읽기 타이밍 최적화하기](https://thegicode.github.io/javascript-recipe/deep/load.html)

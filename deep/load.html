@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>자바스크립트 읽기 타이밍 최적화하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+    <!-- 
+        각 스크립트는 비동기로 처리된다. 
+        HTML 실행 완료 후 위에서부터 순서대로 실행된다.
+    -->
+    <script src="script1.js" defer></script>
+    <script src="script2.js" defer></script>
+    <script src="script3.js" defer></script>
+</head>
+<body>
+
+    <h1>자바스크립트 읽기 타이밍 최적화하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>&lt;script src="주소" async&gt;</script></th>
+                <td>JS 파일을 비동기로 읽어 와 즉시 실행</td> 
+            </tr>
+            <tr>
+                <th>&lt;script src="주소" defer&gt;</script></th>
+                <td>JS 파일을 비동기로 읽어 와 HTML 실행 완료 후 실행</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        브라우저는 웹 페이지를 표시할 때 HTML 코드를 위에서부터 순서대로 실행한다. <br>
+        head 태그 내 script 태그를 삽입하면 head 태그 실행 중 해당 script 태그에서 HTML 코드의 실행이 정지되고 동기 처리를 이용해 자바스크립트 파일의 다운로드를 시작한다. <br>
+        하지만 script 태그에 defer 속성과 async 속성을 설정하면, 자바스크립티의 다운로드는 비동기로 실행되고 HTML 실행은 정지되지 않는다.
+    </p>
+
+    <p>async와 defer의 차이는 자바스크립트의 실행 타이밍이다. <br>
+        async는 자바스크립트 다운로드 완료 시점에서 바로 실행되고, defer는 HTML의 실행 완료 후 자바스크립트가 실행된다. <br>
+        defer의 속성을 가지는 script 태그가 여러 개일 때는 위에서부터 순서대로 실행된다. <br>
+        async의 속성을 가지는 script 태그가 여러 개일 때는 순서에 따른 실행 순서를 보장할 수 없으므로 독립적으로 동작하는 처리를 사용하는 것이 좋다. <br>   
+        <u>async는 접속 기록 분석과 SNS 페이지나 플로그인 등에 사용하면 효율적이다. </u>
+    </p>
+
+    <p>defer 속성은 HTML 실행 완료 후 자바스크립트를 실행하므로 documeunt.querySelector()등 DOM의 각 요소 조작을 가능케한다.</p>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
