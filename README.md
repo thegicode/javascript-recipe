@@ -10,23 +10,23 @@
 
 ## Boolean, Number, String
 
-- [Number](https://thegicode.github.io/javascript-recipe/number.html)
-- [Math 반올림, 올림, 버림](https://thegicode.github.io/javascript-recipe/math-rounding.html)
-- [Math Random](https://thegicode.github.io/javascript-recipe/math-random.html)
-- [Math 수학 함수](https://thegicode.github.io/javascript-recipe/math-maths.html)
-- [Math 삼각 함수](https://thegicode.github.io/javascript-recipe/math-trigonometric.html)
-- [String CharAt(문자열에서 문자 추출)](https://thegicode.github.io/javascript-recipe/string-charat.html)
-- [지정 문자열 변환](https://thegicode.github.io/javascript-recipe/string-replace.html)
-- [문자열 나누기](https://thegicode.github.io/javascript-recipe/string-split.html)
-- [문자열 합치기](https://thegicode.github.io/javascript-recipe/string-combine.html)
-- [정규표현식 사용하기](https://thegicode.github.io/javascript-recipe/regular.html)
-- [정규표현식으로 특정 문자 검색하기](https://thegicode.github.io/javascript-recipe/regular-test.html)
+- [Number](https://thegicode.github.io/javascript-recipe/builtin/number.html)
+- [Math 반올림, 올림, 버림](https://thegicode.github.io/javascript-recipe/builtin/math-rounding.html)
+- [Math Random](https://thegicode.github.io/javascript-recipe/builtin/math-random.html)
+- [Math 수학 함수](https://thegicode.github.io/javascript-recipe/builtin/math-maths.html)
+- [Math 삼각 함수](https://thegicode.github.io/javascript-recipe/builtin/math-trigonometric.html)
+- [String CharAt(문자열에서 문자 추출)](https://thegicode.github.io/javascript-recipe/builtin/string-charat.html)
+- [지정 문자열 변환](https://thegicode.github.io/javascript-recipe/builtin/string-replace.html)
+- [문자열 나누기](https://thegicode.github.io/javascript-recipe/builtin/string-split.html)
+- [문자열 합치기](https://thegicode.github.io/javascript-recipe/builtin/string-combine.html)
+- [정규표현식 사용하기](https://thegicode.github.io/javascript-recipe/builtin/regular.html)
+- [정규표현식으로 특정 문자 검색하기](https://thegicode.github.io/javascript-recipe/builtin/regular-test.html)
   - 예제: 전화번호 형식 체크
-- [소숫점 자리수 지정하기](https://thegicode.github.io/javascript-recipe/number-decimalPoint.html)
+- [소숫점 자리수 지정하기](https://thegicode.github.io/javascript-recipe/builtin/number-decimalPoint.html)
   - 예제: 15초 카운트 다운
-- [문자열 길이 맞추기](https://thegicode.github.io/javascript-recipe/string-pad.html)
+- [문자열 길이 맞추기](https://thegicode.github.io/javascript-recipe/builtin/string-pad.html)
   - 예제: 디지털 시계
-- [문자열 URI Escape 처리하기](https://thegicode.github.io/javascript-recipe/encodeURI.html)
+- [문자열 URI Escape 처리하기](https://thegicode.github.io/javascript-recipe/builtin/encodeURI.html)
   - 예제: textarea에 입력하여 트위터에 게시
 
 ## 데이터 다루기
@@ -183,7 +183,7 @@
 - [PNG/JPEG DataURL로 불러오기](https://thegicode.github.io/javascript-recipe/svg/canvas-dataURL2.html)
 - [캔버스 그래픽 다운로드하기](https://thegicode.github.io/javascript-recipe/svg/canvas-download.html)
 
-## 타이핑 제어
+## 타이밍 제어
 - [지정 시간 후 작업 실행하기](https://thegicode.github.io/javascript-recipe/time/settimeout.html)
 - [시간 주기 작업하기](https://thegicode.github.io/javascript-recipe/time/setinterval.html)
 - [시간 주기 작업 해제하기](https://thegicode.github.io/javascript-recipe/time/clearinterval.html)
