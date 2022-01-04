@@ -238,3 +238,4 @@
 - [처리 파일 분할하기[ES 모듈]](https://thegicode.github.io/javascript-recipe/deep/es.html)
 - [모듈 내보내기](https://thegicode.github.io/javascript-recipe/deep/export.html)
 - [모듈 가져오기](https://thegicode.github.io/javascript-recipe/deep/import.html)
+- [반복 처리를 위한 반복자 사용하기](https://thegicode.github.io/javascript-recipe/deep/iterator.html)

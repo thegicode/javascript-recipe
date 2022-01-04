@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>반복 처리를 위한 반복자 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>반복 처리를 위한 반복자 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>객체[Symbol.iteratr]()</th>
+                <td>반복자 가져오기</td> 
+                <td>반복자</td> 
+            </tr>
+            <tr>
+                <th>반복자.next()</th>
+                <td>다음 반복자 가져오기</td> 
+                <td>반복자</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>반복자.value</th>
+                <td>현재값</td> 
+                <td>임의</td> 
+            </tr>
+            <tr>
+                <th>반복자.done</th>
+                <td>종료 여부 확인</td> 
+                <td>진릿값</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>반복자 iterator 는 여러 값에 순서대로 접근이 가능한 구조를 가진 객체로, <br>
+        단어의 원형인 iterate는 반복한다는 의미를 가졌다. <br>
+        반복자를 가지는 객체를 반복 가능한 객체 Iterable Object라고 하며, <br>
+        대표적으로 배열이 있다. <br>
+        배열은 for...of를 사용할 순서대로 처리할 수 있으며, <br>
+        반복 가능한 객체라면 같은 방식으로 for...of를 사용할 수 있다.
+    </p>
+
+    <script>
+        const array0 = [1, 2, 3]
+        for (let value of array0) {
+            console.log(value)
+        }
+    </script>
+
+    <p>배열의 개별 반복자에 접근하는 데는 '배열[Symbole.iterator]()'를 사용 <br>
+        각 객체는 value와 done 속성을 가진다.
+    </p>
+
+    <script>
+        const array = ['사자', '곰', '호랑이']
+
+        const iterator = array[Symbol.iterator]()
+
+        const next1 = iterator.next()
+        console.log(next1.value, next1.done)
+
+        const next2 = iterator.next()
+        console.log(next2.value, next2.done)
+
+        const next3 = iterator.next()
+        console.log(next3.value, next3.done)
+
+        const next4 = iterator.next()
+        console.log(next4.value, next4.done)
+
+    </script>
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
