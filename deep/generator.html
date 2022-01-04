@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>iterator 정의하여 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>iterator 정의하여 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>function* 함수명(){}</th>
+                <td>제너레이터 정의</td> 
+            </tr>
+            <tr>
+                <th>yield 값</th>
+                <td>값을 반환</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>제너레이터를 사용해 반본자를 간단히 사용하는 방법이 있으며, 반복자를 정의할 수도 있다. </p>
+
+    <script>
+        // Generator
+        function* myGenerator() {
+            yield '사자'
+            yield '호랑이'
+            yield '곰'
+        }
+
+        // 반복 가능한 객체로 생성되므로 next()나 done을 사용할 수 있다.
+        const myIterable = myGenerator()
+        console.log(myIterable.next().value)
+        console.log(myIterable.next().value)
+        console.log(myIterable.next().value)
+        console.log(myIterable.next().done)
+
+        console.log('')
+
+        // for...of
+        const myIterable2 = myGenerator()
+        for (let value of myIterable2) {
+            console.log(value)
+        }
+
+    </script>
+
+    <p>yield는 해당 시점에서 함수의 실행을 멈추고 next()가 호출되면 다시 실행되는 특성이 있다. </p>
+
+    <script>
+        console.log('')
+
+        function* logGenerator() {
+            console.log('안녕하세요');
+            yield 1000
+            console.log('오늘은 날씨가 좋아요')
+            yield 2000
+            console.log('내일은 비가 올 것 같아요')
+            yield 3000
+        }
+
+        const logIterable = logGenerator()
+        setInterval( () => {
+            console.log(logIterable.next().value)
+        }, 1000)
+
+
+        /** 지정 범위의 정수를 하나씩 반환하는 샘플 */
+        function* range(start, end) {
+            let result = start
+            while (result <= end) {
+                yield result
+                result++
+            }
+        }
+        for (let value of range(2, 6)) {
+            console.log(value)
+        }
+
+        console.log('')
+
+    </script>
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

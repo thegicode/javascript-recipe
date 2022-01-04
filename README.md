@@ -239,3 +239,4 @@
 - [모듈 내보내기](https://thegicode.github.io/javascript-recipe/deep/export.html)
 - [모듈 가져오기](https://thegicode.github.io/javascript-recipe/deep/import.html)
 - [반복 처리를 위한 반복자 사용하기](https://thegicode.github.io/javascript-recipe/deep/iterator.html)
+- [iterator 정의하여 사용하기](https://thegicode.github.io/javascript-recipe/deep/generator.html)
