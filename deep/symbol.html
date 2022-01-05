@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>유일한 데이터 사용하기[심볼]</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>유일한 데이터 사용하기[심볼]</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Symbol(문자열혹은숫자*)</th>
+                <td>심볼 생성</td> 
+                <td>심볼</td>
+            </tr>
+        </tbody>
+    </table>
+    <small>* 생략가능</small>
+
+    <p>Symbol은 다른 데이터와 중복되지 않는 유일한 값을 사용한다. <br>
+    이 특성을 이용해 ID를 관리하거나 빌트인 객체에 추가하는 독자적인 메소드 생성이 가능하다. <br>
+    심볼의 생성은 new가 아닌 Symbol()을 사용한다. </p>
+
+    <script>
+        const symbol1 = Symbol()
+        const symbol2 = Symbol()
+        console.log( symbol1 == symbol2)    // false
+        console.log( symbol1 === symbol2)   // false
+
+        // Symbol의 타입은 symbol
+        console.log( typeof symbol1 )   // symbol
+
+    </script>
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
