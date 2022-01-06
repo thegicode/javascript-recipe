@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>데이터 중복 없는 Set 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>데이터 중복 없는 Set 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new Set(반복가능한객체*)</th>
+                <td>Set 객체 초기화</td> 
+                <td>객체(Set)</td>
+            </tr>
+            <tr>
+                <th>세트.add(값)</th>
+                <td>값 등록</td>
+                <td>객체(Set)</td>
+            </tr>
+            <tr>
+                <th>세트.has(값)</th>
+                <td>값 존재 여부 확인</td>
+                <td>진릿값</td>
+            </tr>
+            <tr>
+                <th>세트.delete(값)</th>
+                <td>값 삭제</td>
+                <td>진릿값(삭제 여부)</td>
+            </tr>
+            <tr>
+                <th>세트.clear()</th>
+                <td>값 전체 삭제</td>
+                <td>객체(iterator)</td>
+            </tr>
+            <tr>
+                <th>세트.forEach(콜백)</th>
+                <td>각 값에 대한 처리 실행</td>
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>* 생략 가능</p>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>세트.size</th>
+                <td>요소의 수</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Set 객체는 여러 값을 다룬다. <br>  
+        하지만 배열이나 Object와 달리 Index와 키를 사용해 값에 접근할 수 없고 중복되는 값의 설정도 불가능한 것이 특징이다. 
+        세트는 add()나 has()를 사용해 값을 추가하거나 존재 여부를 확인하며, 임의의 값 설정이 가능하다.
+    </p>
+
+    <script>
+        const userIdList = new Set()
+
+        userIdList.add(20)
+        userIdList.add(50)
+        userIdList.add(120)
+
+        /* userIdList.add(20)
+            .add(50)
+            .add(120) */
+
+        console.log(userIdList.has(50))
+
+        // [값1, 값2]의 형태로 초기화 지정이 가능하다.
+        const userIdList2 = new Set([20, 50, 120])
+        console.log(userIdList2.has(120))
+        console.log('')
+    </script>
+    
+
+    <p>values를 사용해 값을 가져오며, 반복자 객체가 반환되므로 for...of 등을 사용해 처리할 수 있다.</p>
+    <script>
+        console.log('=== values')
+        const valueList = userIdList.values()
+        for (let value of userIdList) {
+            console.log(value)
+        }
+
+        console.log('=== forEach')
+        userIdList.forEach( (value) => {
+            console.log(value)
+        })
+        console.log('')
+    </script>
+
+    <p>중복되는 동일한 값을 설정하면 해당 값은 무시된다.</p>
+    <script>
+        userIdList.add(120)
+        const userIdArray = [...userIdList]
+        console.log(userIdArray)    // [20, 50, 120]
+        console.log('')
+    </script>
+
+    <p>size 속성으로 세트 내부 요소의 수를 확인</p>
+    <script>
+        console.log('size:', userIdList.size)
+    </script>
+
+    
+
+
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>

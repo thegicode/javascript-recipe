@@ -244,4 +244,6 @@
 - [유일한 데이터 사용하기[심볼]](https://thegicode.github.io/javascript-recipe/deep/symbol.html)
 - [배열과 객체에 독자적인 메소드 추가하기](https://thegicode.github.io/javascript-recipe/deep/method.html)
 - [Map과 key 사용하기](https://thegicode.github.io/javascript-recipe/deep/map.html)
+- [데이터 중복 없는 Set 사용하기](https://thegicode.github.io/javascript-recipe/deep/set.html)
+
 
