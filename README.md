@@ -243,4 +243,5 @@
   - 지정 범위의 정수를 하나씩 반환하는 샘플 
 - [유일한 데이터 사용하기[심볼]](https://thegicode.github.io/javascript-recipe/deep/symbol.html)
 - [배열과 객체에 독자적인 메소드 추가하기](https://thegicode.github.io/javascript-recipe/deep/method.html)
+- [Map과 key 사용하기](https://thegicode.github.io/javascript-recipe/deep/map.html)
 

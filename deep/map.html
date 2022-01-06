@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <title>Map과 key 사용하기</title>
+    <style>
+        body{
+            margin: 1rem;
+        }
+        h2{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 10px;
+        }
+        h2:before{
+            content: '';
+            width: 7px; 
+            height: 7px;
+            margin: -3px 7px 0 0;
+            background: rgba(125, 0, 255, 1);
+        }
+        h3{ 
+            margin-top: 3rem;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(80, 0, 255, 0.2);
+        }
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        thead{
+            background: rgba(125, 0, 255, 0.05);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid rgba(125, 0, 255, 0.1);
+        }
+
+        section{
+            margin: 2rem 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .rel{
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Map과 key 사용하기</h1>
+
+    <h2>Syntax</h2>
+
+    <table>
+        <thead>
+            <th>메소드</th>
+            <th>의미</th>
+            <th>반환</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>new Map(반복가능한객체*)</th>
+                <td>맵 객체 초기화</td> 
+                <td>객체(Map)</td>
+            </tr>
+            <tr>
+                <th>맵.set(키, 값)</th>
+                <td>맵에 키와 값의 세트를 등록</td>
+                <td>객체(Map)</td>
+            </tr>
+            <tr>
+                <th>맵.get(키)</th>
+                <td>키를 지정해서 값을 가져오기</td>
+                <td>값</td>
+            </tr>
+            <tr>
+                <th>맵.has(키)</th>
+                <td>키의 값 존재 여부 확인</td>
+                <td>진릿값</td>
+            </tr>
+            <tr>
+                <th>맵.delete(키)</th>
+                <td>키의 값 삭제</td>
+                <td>진릿값(삭제 여부)</td>
+            </tr>
+            <tr>
+                <th>맵.clear()</th>
+                <td>키의 값 모두 삭제</td>
+                <td>없음</td>
+            </tr>
+            <tr>
+                <th>맵.keys()</th>
+                <td>키의 반복자 객체</td>
+                <td>객체(iterator)</td>
+            </tr>
+            <tr>
+                <th>맵.values()</th>
+                <td>키의 반복자 객체</td>
+                <td>객체(iterator)</td>
+            </tr>
+            <tr>
+                <th>맵.entries()</th>
+                <td>키의 값 배열의 반복자 객체 반환</td>
+                <td>객체(iterator)</td>
+            </tr>
+            <tr>
+                <th>맵.forEach(콜백)</th>
+                <td>각 세트에 대한 처리 실행</td>
+                <td>없음</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>* 생략 가능</p>
+
+    <table>
+        <thead>
+            <th>속성</th>
+            <th>의미</th>
+            <th>타입</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>맵.size</th>
+                <td>키와 값 세트의 수</td> 
+                <td>숫자</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <th>forEach() 콜백 구문</th>
+            <th>의미</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>(키, 값) => {}</th>
+                <td>키와 값을 가져와 처리</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Map 객체는 키와 값을 세트로 사용하여 다양한 데이터를 다룬다. <br>
+    Object도 키를 사용해 데이터를 다루지만, Map은 키와 값을 세트로 다루는 기능에 조금 더 특화되어 있다. <br>
+    다른 프로그래밍 언어의 연관 배열 Associative Array이나 딕셔너리Dictionary와 같은 기능이다. </p>
+
+    <script>
+        // get(), set(), has()
+        let memberList = new Map()
+        memberList.set(20, '사자')
+        memberList.set(50, '호랑이')
+        memberList.set(120, '사슴')
+        console.log(memberList.get(20))
+        console.log(memberList.has(50))
+
+        // 초기화 [[키1, 값1], [키2, 값2]]
+        memberList = new Map([[20, '사자'], [50, '호랑이'], [150, '사슴']])
+        console.log(memberList.get(150))
+        console.log('')
+
+    </script>
+
+    <p>키는 문자열, 숫자, 심볼 등의 타입을 사용할 수 있다. <br>
+        심볼을 키로 지정하면 유일한 키 값을 가지는 세트의 생성이 가능하다.
+    </p>
+    <script>
+        const myMap1 = new Map()
+        myMap1.set(10, '사자')
+        console.log(myMap1.get(10))
+
+        const myMap2 = new Map()
+        myMap2.set('f1234_56', '호랑이')
+        console.log(myMap2.get('f1234_56'))
+
+        const myMap3 = new Map()
+        const keySymbol = Symbol()
+        myMap3.set(keySymbol, '사슴')
+        console.log(myMap3.get(keySymbol))
+        console.log('')
+    </script>
+
+    <p>size 속성으로 세트의 수를 확인할 수 있다.</p>
+    <script>
+        const memberList2 = new Map()
+        memberList2.set('134_456', '사자')
+        memberList2.set('789', '호랑이')
+        memberList2.set('22_222', '사슴')
+        console.log('size:', memberList2.size)
+        console.log('')
+    </script>
+
+    <p>keys(), values(), entries()를 사용해 각각 키, 값, 키와 값의 세트를 가져올 수 있으며  <br>
+    반환값은 모두 반복자 객체이므로 for...of 등을 사용해 처리할 수 있다.</p>
+    <script>
+        const memberList3 = new Map([[20, '사자'], [50, '호랑이'], [120, '사슴']])
+
+        console.log('=== keys')
+        const keyList = memberList3.keys()
+        for (let key of keyList) {
+            console.log(key)
+        }
+
+        console.log('=== values')
+        const valueList = memberList3.values()
+        for (let value of valueList) {
+            console.log(value)
+        }
+
+        console.log('=== entries')
+        const entryList = memberList3.entries()
+        for (let entry of entryList) {
+            console.log(entry)
+        }
+        console.log('')
+    </script>
+
+    <p>forEach()를 사용해도 각 세트를 작업할 수 있다.</p>
+    <script>
+        console.log('=== forEach')
+        memberList3.forEach((value, key) => {
+            console.log(`${key}: ${value}`)
+        })
+    </script>
+
+    
+
+
+
+
+    <p class="rel">출처 : 자바스크립트 코드 레시피 278</p>
+
+</body>
+</html>
