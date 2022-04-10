@@ -54,16 +54,16 @@
 
 ## 날짜와 시간
 
-- [날짜 다루기](https://thegicode.github.io/javascript-recipe/data-time/date-date.html)
-- [시간 다루기](https://thegicode.github.io/javascript-recipe/data-time/date-time.html)
-- [현재 시간과 날짜 가져오기](https://thegicode.github.io/javascript-recipe/data-time/date-locale.html)
-- [날짜 문자열의 타임스탬프 확인하기](https://thegicode.github.io/javascript-recipe/data-time/date-parse.html)
-- [날짜 설정하기](https://thegicode.github.io/javascript-recipe/data-time/date-set.html)
-- [날짜 계산하기](https://thegicode.github.io/javascript-recipe/data-time/date-calculate.html)
-- [날짜 차이 구하기](https://thegicode.github.io/javascript-recipe/data-time/date-diff.html)
-- [경과 시간 확인하기](https://thegicode.github.io/javascript-recipe/data-time/date-elapsed.html)
-- [카운트다운](https://thegicode.github.io/javascript-recipe/data-time/date-countdown.html)
-- [아날로그 시간 표시하기](https://thegicode.github.io/javascript-recipe/data-time/date-analog-clock.html)
+- [날짜 다루기](https://thegicode.github.io/javascript-recipe/date-time/date-date.html)
+- [시간 다루기](https://thegicode.github.io/javascript-recipe/date-time/date-time.html)
+- [현재 시간과 날짜 가져오기](https://thegicode.github.io/javascript-recipe/date-time/date-locale.html)
+- [날짜 문자열의 타임스탬프 확인하기](https://thegicode.github.io/javascript-recipe/date-time/date-parse.html)
+- [날짜 설정하기](https://thegicode.github.io/javascript-recipe/date-time/date-set.html)
+- [날짜 계산하기](https://thegicode.github.io/javascript-recipe/date-time/date-calculate.html)
+- [날짜 차이 구하기](https://thegicode.github.io/javascript-recipe/date-time/date-diff.html)
+- [경과 시간 확인하기](https://thegicode.github.io/javascript-recipe/date-time/date-elapsed.html)
+- [카운트다운](https://thegicode.github.io/javascript-recipe/date-time/date-countdown.html)
+- [아날로그 시간 표시하기](https://thegicode.github.io/javascript-recipe/date-time/date-analog-clock.html)
 
 ## 브라우저
 
