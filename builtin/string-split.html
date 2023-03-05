@@ -139,8 +139,10 @@
 
         <script>
 
-            // ?id=dog&name=양송&age=7
-           
+            // // ?id=dog&name=양송&age=7
+
+
+            // 원본
             // 해시 데이터 보관을 위한 객체
             const hashes = {};
 
@@ -168,9 +170,29 @@
 
             console.log( hashes );
             // {id: '12345', name: 'Lion', age: '28'}
+
+
+            // 2번째
+            // const parameters = location.search.split(/&|\?/)
+            //     .filter( value => {
+            //         return value.includes('=')
+            //     })
+            // parameters.forEach( param => {
+            //     const v = param.split('=')
+            //     hashs[v[0]] = decodeURIComponent(v[1])
+            // })
+
+
+            // 3번째
+            // const queryParams = new URLSearchParams(location.search)
+            // const queryParamsArray = Array.from(queryParams.entries())
+            // const queryParamsObject = Object.fromEntries(queryParamsArray)
+
+            // console.log(queryParamsObject)
+            // const hashes = queryParamsObject
             
 
-            // hashes에 id가 포함된 경우 처리 작업
+            // // hashes에 id가 포함된 경우 처리 작업
             if (hashes['id'] != null) {
                 document.querySelector('.id').innerHTML = hashes['id'];
             }
