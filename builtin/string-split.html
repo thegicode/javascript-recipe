@@ -171,16 +171,9 @@
             console.log( hashes );
             // {id: '12345', name: 'Lion', age: '28'}
 
-
-            // 2번째
-            // const parameters = location.search.split(/&|\?/)
-            //     .filter( value => {
-            //         return value.includes('=')
-            //     })
-            // parameters.forEach( param => {
-            //     const v = param.split('=')
-            //     hashs[v[0]] = decodeURIComponent(v[1])
-            // })
+            // es6
+            // const queryParams = Object.fromEntries(new URLSearchParams(location.search));
+            // console.log(queryParams); // Output: { id: "dog", name: "Yangsong", age: "7" }
 
 
             // 3번째
